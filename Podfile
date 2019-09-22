@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'CardBenefit' do
 pod 'Alamofire', '~> 4.5'
+pod 'FMDB'
 end

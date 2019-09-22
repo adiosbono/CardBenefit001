@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,17 @@
 		04659B85232E766F0085692C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04659B83232E766F0085692C /* LaunchScreen.storyboard */; };
 		04659B90232E766F0085692C /* CardBenefitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B8F232E766F0085692C /* CardBenefitTests.swift */; };
 		04659B9B232E766F0085692C /* CardBenefitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B9A232E766F0085692C /* CardBenefitUITests.swift */; };
+		04659BA9232E87490085692C /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BA8232E87490085692C /* FMDB.framework */; };
+		04659BAB232E87520085692C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BAA232E87520085692C /* Alamofire.framework */; };
+		04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C6D233779E2006B1220 /* CardCell.swift */; };
+		04FB8C71233787BE006B1220 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04FB8C70233787BE006B1220 /* db.sqlite */; };
+		04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */; };
+		04FB8C752337907E006B1220 /* TableVCTemplateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */; };
+		04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C762337AA7B006B1220 /* MemoCell.swift */; };
+		04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C782337ACE5006B1220 /* ConditionCell.swift */; };
+		04FFBFD9232FA3BA00712680 /* CardToBenefitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */; };
+		04FFBFDB232FA55600712680 /* CardVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFBFDA232FA55600712680 /* CardVO.swift */; };
+		04FFBFDD232FA73500712680 /* CardDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFBFDC232FA73500712680 /* CardDAO.swift */; };
 		6E4D0EEA14C8A0C4DE233559 /* Pods_CardBenefit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD45547A229E8A6769832DE /* Pods_CardBenefit.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +61,17 @@
 		04659B96232E766F0085692C /* CardBenefitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardBenefitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659B9A232E766F0085692C /* CardBenefitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBenefitUITests.swift; sourceTree = "<group>"; };
 		04659B9C232E766F0085692C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04659BA8232E87490085692C /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04659BAA232E87520085692C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04FB8C6D233779E2006B1220 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		04FB8C70233787BE006B1220 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = db.sqlite; path = dbSource/db.sqlite; sourceTree = SOURCE_ROOT; };
+		04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBenefitVC.swift; sourceTree = "<group>"; };
+		04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVCTemplateVC.swift; sourceTree = "<group>"; };
+		04FB8C762337AA7B006B1220 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		04FB8C782337ACE5006B1220 /* ConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCell.swift; sourceTree = "<group>"; };
+		04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToBenefitVC.swift; sourceTree = "<group>"; };
+		04FFBFDA232FA55600712680 /* CardVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVO.swift; sourceTree = "<group>"; };
+		04FFBFDC232FA73500712680 /* CardDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDAO.swift; sourceTree = "<group>"; };
 		0BD45547A229E8A6769832DE /* Pods_CardBenefit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardBenefit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		377EAAC0DE21CB6D383A913D /* Pods-CardBenefit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardBenefit.release.xcconfig"; path = "Target Support Files/Pods-CardBenefit/Pods-CardBenefit.release.xcconfig"; sourceTree = "<group>"; };
 		EF6ECD26CD2E9B7EE03C918B /* Pods-CardBenefit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardBenefit.debug.xcconfig"; path = "Target Support Files/Pods-CardBenefit/Pods-CardBenefit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04659BAB232E87520085692C /* Alamofire.framework in Frameworks */,
+				04659BA9232E87490085692C /* FMDB.framework in Frameworks */,
 				6E4D0EEA14C8A0C4DE233559 /* Pods_CardBenefit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +108,7 @@
 		04659B6B232E766B0085692C = {
 			isa = PBXGroup;
 			children = (
+				04FB8C6F233787A1006B1220 /* Database */,
 				04659B76232E766B0085692C /* CardBenefit */,
 				04659B8E232E766F0085692C /* CardBenefitTests */,
 				04659B99232E766F0085692C /* CardBenefitUITests */,
@@ -108,6 +133,14 @@
 			children = (
 				04659B77232E766B0085692C /* AppDelegate.swift */,
 				04659B79232E766B0085692C /* ViewController.swift */,
+				04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */,
+				04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */,
+				04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */,
+				04FB8C6D233779E2006B1220 /* CardCell.swift */,
+				04FB8C762337AA7B006B1220 /* MemoCell.swift */,
+				04FB8C782337ACE5006B1220 /* ConditionCell.swift */,
+				04FFBFDA232FA55600712680 /* CardVO.swift */,
+				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04659B7B232E766B0085692C /* Main.storyboard */,
 				04659B81232E766F0085692C /* Assets.xcassets */,
 				04659B83232E766F0085692C /* LaunchScreen.storyboard */,
@@ -135,19 +168,28 @@
 			path = CardBenefitUITests;
 			sourceTree = "<group>";
 		};
+		04FB8C6F233787A1006B1220 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				04FB8C70233787BE006B1220 /* db.sqlite */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		B8C21D28768B5EFCD806FF08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				EF6ECD26CD2E9B7EE03C918B /* Pods-CardBenefit.debug.xcconfig */,
 				377EAAC0DE21CB6D383A913D /* Pods-CardBenefit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		C53570956EA592FBC5DF3EB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04659BAA232E87520085692C /* Alamofire.framework */,
+				04659BA8232E87490085692C /* FMDB.framework */,
 				0BD45547A229E8A6769832DE /* Pods_CardBenefit.framework */,
 			);
 			name = Frameworks;
@@ -262,6 +304,7 @@
 				04659B85232E766F0085692C /* LaunchScreen.storyboard in Resources */,
 				04659B82232E766F0085692C /* Assets.xcassets in Resources */,
 				04659B7D232E766B0085692C /* Main.storyboard in Resources */,
+				04FB8C71233787BE006B1220 /* db.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,9 +371,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */,
+				04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */,
+				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
+				04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */,
 				04659B7A232E766B0085692C /* ViewController.swift in Sources */,
 				04659B80232E766C0085692C /* CardBenefit.xcdatamodeld in Sources */,
+				04FFBFDD232FA73500712680 /* CardDAO.swift in Sources */,
 				04659B78232E766B0085692C /* AppDelegate.swift in Sources */,
+				04FFBFD9232FA3BA00712680 /* CardToBenefitVC.swift in Sources */,
+				04FFBFDB232FA55600712680 /* CardVO.swift in Sources */,
+				04FB8C752337907E006B1220 /* TableVCTemplateVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

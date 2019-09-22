@@ -1,24 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cab-Mg-6GX">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Detail BenefitVC-->
+        <scene sceneID="nNe-gF-As1">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController storyboardIdentifier="Detail" id="keP-Or-LS3" customClass="DetailBenefitVC" customModule="CardBenefit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr4-5h-bl4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memoCell" rowHeight="120" id="htz-z7-pgW" customClass="MemoCell" customModule="CardBenefit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="htz-z7-pgW" id="fQO-fh-wxc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q0n-lJ-Dn1">
+                                            <rect key="frame" x="20" y="11" width="374" height="98"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="q0n-lJ-Dn1" firstAttribute="centerY" secondItem="fQO-fh-wxc" secondAttribute="centerY" id="BUx-o0-WWy"/>
+                                        <constraint firstItem="q0n-lJ-Dn1" firstAttribute="centerX" secondItem="fQO-fh-wxc" secondAttribute="centerX" id="oqS-gn-ueM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="memoTextView" destination="q0n-lJ-Dn1" id="7CV-PM-Frj"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="conditionCell" id="2kN-jb-1CB" customClass="ConditionCell" customModule="CardBenefit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="148" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2kN-jb-1CB" id="erb-dy-yXm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-fJ-x7Q">
+                                            <rect key="frame" x="20" y="12" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ddF-fJ-x7Q" firstAttribute="centerY" secondItem="erb-dy-yXm" secondAttribute="centerY" id="16f-rW-cSP"/>
+                                        <constraint firstItem="ddF-fJ-x7Q" firstAttribute="centerX" secondItem="erb-dy-yXm" secondAttribute="centerX" id="Kke-od-x3o"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="conditionLabel" destination="ddF-fJ-x7Q" id="efn-ah-pLo"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="benefitCell" id="Qmv-fs-ymA" customClass="BenefitCell">
+                                <rect key="frame" x="0.0" y="192" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qmv-fs-ymA" id="Jfi-hn-hto">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="keP-Or-LS3" id="218-qm-eRt"/>
+                            <outlet property="delegate" destination="keP-Or-LS3" id="Rd6-Bb-euG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEg-lq-Zjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1182.608695652174" y="517.63392857142856"/>
+        </scene>
+        <!--카드별 혜택-->
+        <scene sceneID="dsM-ZB-Zgc">
+            <objects>
+                <tableViewController id="x6f-xZ-ow1" customClass="CardToBenefitVC" customModule="CardBenefit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OXv-Uw-e2D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="br2-AA-9yZ">
+                            <rect key="frame" x="0.0" y="118" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cardCell" rowHeight="90" id="vju-SA-OkK" customClass="CardCell" customModule="CardBenefit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vju-SA-OkK" id="APU-Al-CRc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF3-LX-1YF">
+                                            <rect key="frame" x="381" y="11" width="13" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교통카드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Or-8n-Exa">
+                                            <rect key="frame" x="314" y="11" width="59" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해외결제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWb-eR-RdA">
+                                            <rect key="frame" x="314" y="58" width="59" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카드명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjN-m5-que">
+                                            <rect key="frame" x="161" y="11" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="별칭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RV-4M-HuU">
+                                            <rect key="frame" x="161" y="58" width="30" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6JG-Lp-5Sp">
+                                            <rect key="frame" x="20" y="9.5" width="113" height="70.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="6JG-Lp-5Sp" secondAttribute="height" multiplier="8:5" id="sso-ef-4Nh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0j-3u-yAR">
+                                            <rect key="frame" x="382" y="58" width="12" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2RV-4M-HuU" firstAttribute="bottom" secondItem="APU-Al-CRc" secondAttribute="bottomMargin" id="EbC-fG-D0W"/>
+                                        <constraint firstItem="DF3-LX-1YF" firstAttribute="trailing" secondItem="APU-Al-CRc" secondAttribute="trailingMargin" id="GLS-MV-pjw"/>
+                                        <constraint firstItem="rWb-eR-RdA" firstAttribute="bottom" secondItem="APU-Al-CRc" secondAttribute="bottomMargin" id="Gpg-9y-hj0"/>
+                                        <constraint firstItem="i0j-3u-yAR" firstAttribute="bottom" secondItem="APU-Al-CRc" secondAttribute="bottomMargin" id="GxJ-QJ-u5S"/>
+                                        <constraint firstItem="2RV-4M-HuU" firstAttribute="leading" secondItem="6JG-Lp-5Sp" secondAttribute="trailing" constant="28" id="VuQ-9n-Dj5"/>
+                                        <constraint firstItem="NjN-m5-que" firstAttribute="leading" secondItem="6JG-Lp-5Sp" secondAttribute="trailing" constant="28" id="ZqI-x9-8Ua"/>
+                                        <constraint firstItem="DF3-LX-1YF" firstAttribute="top" secondItem="APU-Al-CRc" secondAttribute="topMargin" id="eTq-Qj-rNG"/>
+                                        <constraint firstItem="i0j-3u-yAR" firstAttribute="trailing" secondItem="APU-Al-CRc" secondAttribute="trailingMargin" id="gr1-ce-AwT"/>
+                                        <constraint firstItem="DF3-LX-1YF" firstAttribute="leading" secondItem="0Or-8n-Exa" secondAttribute="trailing" constant="8" id="jYH-hL-XzO"/>
+                                        <constraint firstItem="6JG-Lp-5Sp" firstAttribute="centerY" secondItem="APU-Al-CRc" secondAttribute="centerY" id="kv9-67-S6b"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6JG-Lp-5Sp" secondAttribute="bottom" constant="-1" id="kyV-dp-Zak"/>
+                                        <constraint firstItem="NjN-m5-que" firstAttribute="top" secondItem="APU-Al-CRc" secondAttribute="topMargin" id="p57-7w-vER"/>
+                                        <constraint firstItem="i0j-3u-yAR" firstAttribute="leading" secondItem="rWb-eR-RdA" secondAttribute="trailing" constant="9" id="qjw-SY-9FK"/>
+                                        <constraint firstItem="6JG-Lp-5Sp" firstAttribute="leading" secondItem="APU-Al-CRc" secondAttribute="leading" constant="20" id="u30-eZ-DLi"/>
+                                        <constraint firstItem="0Or-8n-Exa" firstAttribute="top" secondItem="APU-Al-CRc" secondAttribute="topMargin" id="ynr-VU-CZs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardImage" destination="6JG-Lp-5Sp" id="Db7-mk-Mjy"/>
+                                    <outlet property="cardName" destination="NjN-m5-que" id="qdv-Nr-iJ4"/>
+                                    <outlet property="nickName" destination="2RV-4M-HuU" id="Ipu-tM-K1y"/>
+                                    <outlet property="overseaOX" destination="i0j-3u-yAR" id="J7k-GV-rxd"/>
+                                    <outlet property="trafficOX" destination="DF3-LX-1YF" id="fOd-gu-WOM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="x6f-xZ-ow1" id="AwO-jP-e9D"/>
+                            <outlet property="delegate" destination="x6f-xZ-ow1" id="9yp-6Y-I5s"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="카드별 혜택" id="fQx-hM-XHs">
+                        <barButtonItem key="leftBarButtonItem" title="편집" id="cSt-pP-iIm"/>
+                        <barButtonItem key="rightBarButtonItem" title="카드추가" id="WU6-xk-vpc"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7CW-05-MQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2047.826086956522" y="517.63392857142856"/>
+        </scene>
+        <!--혜택별 카드-->
+        <scene sceneID="H62-tP-g1g">
+            <objects>
+                <tableViewController id="R2b-iY-dL5" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cjF-IO-X78">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dF5-Wu-vOD">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dF5-Wu-vOD" id="xaf-6c-kPK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="R2b-iY-dL5" id="HKt-E1-2Ia"/>
+                            <outlet property="delegate" destination="R2b-iY-dL5" id="oFG-f2-aca"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="혜택별 카드" id="XYS-zE-zaq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V01-7p-Cx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3067" y="518"/>
+        </scene>
+        <!--카드별 혜택-->
+        <scene sceneID="dXQ-1l-dmv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WUC-OT-rcK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="카드별 혜택" id="oxw-r3-avx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lcb-Po-lYa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x6f-xZ-ow1" kind="relationship" relationship="rootViewController" id="UBL-H0-dkQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S44-r3-1OU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2047.826086956522" y="-208.25892857142856"/>
+        </scene>
+        <!--혜택별 카드-->
+        <scene sceneID="DCF-cu-ofO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="md2-Ve-4cP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="혜택별 카드" id="AQS-El-b1W"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q07-NB-lG9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R2b-iY-dL5" kind="relationship" relationship="rootViewController" id="CWd-Cq-hBW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQr-ia-2a2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3066.666666666667" y="-208.25892857142856"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jeS-rk-A4l">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Cab-Mg-6GX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vob-s6-fEd">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WUC-OT-rcK" kind="relationship" relationship="viewControllers" id="P6G-R8-CJK"/>
+                        <segue destination="md2-Ve-4cP" kind="relationship" relationship="viewControllers" id="M6i-fU-6Hg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0f9-Ci-8vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2652" y="-1183"/>
         </scene>
     </scenes>
 </document>
