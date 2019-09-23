@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */; };
 		04659B78232E766B0085692C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B77232E766B0085692C /* AppDelegate.swift */; };
 		04659B7A232E766B0085692C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B79232E766B0085692C /* ViewController.swift */; };
 		04659B7D232E766B0085692C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04659B7B232E766B0085692C /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		04659B74232E766B0085692C /* CardBenefit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardBenefit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659B77232E766B0085692C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04659B79232E766B0085692C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,9 +107,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0432B4F72338D00300F2F2F9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04FB8C6D233779E2006B1220 /* CardCell.swift */,
+				04FB8C762337AA7B006B1220 /* MemoCell.swift */,
+				04FB8C782337ACE5006B1220 /* ConditionCell.swift */,
+				0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		04659B6B232E766B0085692C = {
 			isa = PBXGroup;
 			children = (
+				0432B4F72338D00300F2F2F9 /* Cells */,
 				04FB8C6F233787A1006B1220 /* Database */,
 				04659B76232E766B0085692C /* CardBenefit */,
 				04659B8E232E766F0085692C /* CardBenefitTests */,
@@ -136,9 +150,6 @@
 				04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */,
 				04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */,
 				04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */,
-				04FB8C6D233779E2006B1220 /* CardCell.swift */,
-				04FB8C762337AA7B006B1220 /* MemoCell.swift */,
-				04FB8C782337ACE5006B1220 /* ConditionCell.swift */,
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04659B7B232E766B0085692C /* Main.storyboard */,
@@ -376,6 +387,7 @@
 				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
 				04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */,
 				04659B7A232E766B0085692C /* ViewController.swift in Sources */,
+				0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */,
 				04659B80232E766C0085692C /* CardBenefit.xcdatamodeld in Sources */,
 				04FFBFDD232FA73500712680 /* CardDAO.swift in Sources */,
 				04659B78232E766B0085692C /* AppDelegate.swift in Sources */,

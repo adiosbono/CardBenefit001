@@ -103,9 +103,9 @@ class CardDAO {
             //결과 집합 추출
             while rs.next() {
                 
-                let conditions = rs.string(forColumn: "condition")
+                let conditions = rs.string(forColumn: "condition")//현재 반환되어 conditions에 저장된 값은 옵셔널로된 String? 임
                
-                //CardVO에 들어있는순서대로 cardName, image, nickName, traffic, oversea
+                
                 conditionList.append(conditions)
             }
             

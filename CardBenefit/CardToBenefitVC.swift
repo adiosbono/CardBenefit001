@@ -82,13 +82,16 @@ class CardToBenefitVC: UITableViewController {
  */
  
         //화면을 전환할 뷰컨트롤러를 직접 생성
-        let dvc = DetailBenefitVC()
+        
+        //let dvc = DetailBenefitVC() //이따구로 생성하면 잦된다잉. 스토리보드 아이디를 읽어와서 생성하여라
+        
+        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailBenefitVC //스토리보드 아이디가 디테일임....
         //전달하려는 값을 준다.
         dvc.cardId = self.cardList[indexPath.row].0
         dvc.memo = self.cardList[indexPath.row].6
         //네비게이션컨트롤러를 이용한 화면전환 실시
         self.navigationController?.pushViewController(dvc, animated: true)
-    }
+        }
  
     
     //테이블 뷰의 섹션의 수 결정하는 메소드 따로 오버라이드 하지 않으면 기본값은 1임
