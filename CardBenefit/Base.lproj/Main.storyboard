@@ -30,18 +30,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q0n-lJ-Dn1">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q0n-lJ-Dn1">
                                             <rect key="frame" x="20" y="11" width="374" height="98"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="q0n-lJ-Dn1" firstAttribute="centerY" secondItem="fQO-fh-wxc" secondAttribute="centerY" id="BUx-o0-WWy"/>
-                                        <constraint firstItem="q0n-lJ-Dn1" firstAttribute="centerX" secondItem="fQO-fh-wxc" secondAttribute="centerX" id="oqS-gn-ueM"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="memoTextView" destination="q0n-lJ-Dn1" id="7CV-PM-Frj"/>
@@ -54,17 +51,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-fJ-x7Q">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-fJ-x7Q">
                                             <rect key="frame" x="20" y="12" width="374" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ddF-fJ-x7Q" firstAttribute="centerY" secondItem="erb-dy-yXm" secondAttribute="centerY" id="16f-rW-cSP"/>
-                                        <constraint firstItem="ddF-fJ-x7Q" firstAttribute="centerX" secondItem="erb-dy-yXm" secondAttribute="centerX" id="Kke-od-x3o"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -78,29 +72,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-qu-KLR">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-qu-KLR">
                                             <rect key="frame" x="20" y="11" width="113" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-rB-JJV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-rB-JJV">
                                             <rect key="frame" x="141" y="11" width="253" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.6893822862694301" green="0.6893822862694301" blue="0.6893822862694301" alpha="0.44622029049295775" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="b0w-qu-KLR" firstAttribute="top" secondItem="Jfi-hn-hto" secondAttribute="top" constant="11" id="0kz-Uj-Lt1"/>
-                                        <constraint firstAttribute="trailing" secondItem="b0w-qu-KLR" secondAttribute="trailing" constant="281" id="GQO-94-euc"/>
-                                        <constraint firstItem="6Qg-rB-JJV" firstAttribute="leading" secondItem="b0w-qu-KLR" secondAttribute="trailing" constant="8" id="Nl8-2D-i92"/>
-                                        <constraint firstItem="6Qg-rB-JJV" firstAttribute="top" secondItem="Jfi-hn-hto" secondAttribute="topMargin" id="Xua-Yy-gEw"/>
-                                        <constraint firstItem="6Qg-rB-JJV" firstAttribute="trailing" secondItem="Jfi-hn-hto" secondAttribute="trailingMargin" id="ZG6-ac-vHG"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6Qg-rB-JJV" secondAttribute="bottom" constant="1" id="dv8-dd-MSj"/>
-                                        <constraint firstItem="b0w-qu-KLR" firstAttribute="leading" secondItem="Jfi-hn-hto" secondAttribute="leading" constant="20" id="saU-qp-DJ2"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
