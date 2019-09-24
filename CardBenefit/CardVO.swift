@@ -11,10 +11,16 @@ import UIKit
 
 struct CardVO {
     var cardId: Int
-    var cardName: String = "카드이름"
+    var cardName: String
     var image: UIImage?
     var nickName: String?
-    var traffic: Bool
-    var oversea: Bool
+    var traffic: Int
+    var oversea: Int
     var memo: String?
+}
+
+struct SARVO {
+    var shop: String?
+    var advantage: String?
+    var restrict: String?
 }

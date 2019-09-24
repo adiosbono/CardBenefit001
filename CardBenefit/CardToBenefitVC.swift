@@ -18,7 +18,7 @@ class CardToBenefitVC: UITableViewController {
     //상세화면 뷰컨트롤러 인스턴스
     //var uvc: UIViewController?
     //디비의 main 테이블에서 가져오는 자료형
-    var cardList: [(Int, String?, String, String?, Int, Int, String?)]!
+    var cardList: [(Int, String, String?, String?, Int, Int, String?)]!
     //디비의 conditions 테이블에서 가져오는 자료형
     var conditionList: [String?]!
     //디비의 shop_adv_res 테이블에서 가져오는 자료형
@@ -68,7 +68,7 @@ class CardToBenefitVC: UITableViewController {
     
     //테이블의 특정 행이 선택되었을때 호출되는 메소드
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         /*
         //화면을 전환한 뷰 컨트롤러를 Storyboard ID 정보를 이용하여 읽어와 객채로 생성한다(p3,636)
@@ -85,9 +85,12 @@ class CardToBenefitVC: UITableViewController {
         
         //let dvc = DetailBenefitVC() //이따구로 생성하면 잦된다잉. 스토리보드 아이디를 읽어와서 생성하여라
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let dvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailBenefitVC //스토리보드 아이디가 디테일임....
         //전달하려는 값을 준다.
         dvc.cardId = self.cardList[indexPath.row].0
+        dvc.cardName = self.cardList[indexPath.row].1
         dvc.memo = self.cardList[indexPath.row].6
         //네비게이션컨트롤러를 이용한 화면전환 실시
         self.navigationController?.pushViewController(dvc, animated: true)

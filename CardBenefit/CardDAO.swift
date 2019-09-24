@@ -15,7 +15,7 @@ class CardDAO {
     //CardVO에 들어있는순서대로 cardId, cardName, image, nickName, traffic, oversea, memo
     //차이점이라고 한다면 image가 데이터베이스에는 이름만 저장되므로 여기선 String?이지만 CardVO에선 UIImage?임
     //튜플객체임
-    typealias CardRecord = (Int, String?, String, String?, Int, Int, String?) //메인테이블용
+    typealias CardRecord = (Int, String, String?, String?, Int, Int, String?) //메인테이블용
     //순서대로 condition
     typealias ConditionRecord = String?//컨디션테이블용
     //순서대로 shop, advantage, restrict
@@ -76,7 +76,7 @@ class CardDAO {
                 let foreign = rs.int(forColumn: "foreign_use")
                 let memo = rs.string(forColumn: "memo")
                 //CardVO에 들어있는순서대로 cardId, cardName, image, nickName, traffic, oversea, memo
-                cardList.append((Int(cardId), cardName!, imageName!, nickName!, Int(transport), Int(foreign), memo! ))
+                cardList.append((Int(cardId), cardName!, imageName, nickName, Int(transport), Int(foreign), memo ))
             }
             
         }catch let error as NSError {
@@ -137,7 +137,7 @@ class CardDAO {
                 let advantage = rs.string(forColumn: "advantage")
                 let restrict = rs.string(forColumn: "restrict")
                 
-                //CardVO에 들어있는순서대로 cardName, image, nickName, traffic, oversea
+                
                 SARList.append((shop, advantage, restrict))
             }
             

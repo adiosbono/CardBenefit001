@@ -12,13 +12,14 @@ import UIKit
 class DetailBenefitVC: UITableViewController {
     //변수들을 넣는다
     var cardId: Int?
+    var cardName: String!
     var memo: String?
     
     //디비의 conditions 테이블에서 가져오는 자료형
-    var conditionList: [String?]!
+    var conditionList = [String?]()
     //디비의 shop_adv_res 테이블에서 가져오는 자료형
     //순서대로 shop, advantage, restrict
-    var SARList: [(String?, String?, String?)]!
+    var SARList = [(String?, String?, String?)]()
     
     //DAO객체
     let cardDAO = CardDAO()
@@ -29,31 +30,56 @@ class DetailBenefitVC: UITableViewController {
         self.conditionList = self.cardDAO.findCondition(cardId: cardId!)
         self.SARList = self.cardDAO.findSAR(cardId: cardId!)
         
+        
+        self.navigationItem.title = cardName
+        
     }
-    
     
     
     
     //화면이 나타날때마다 호출되는 메소드
     override func viewWillAppear(_ animated: Bool) {
-        //self.tableView.reloadData()
+
+        self.tableView.reloadData()
     }
 
+    
+    //각 행 높이를 설정하는 메소드
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //시스템이 알이서 정하게 두는 방법
+        //return UITableView.automaticDimension
+        //각 섹션별로 다르게 주고싶은경우
+        
+        switch indexPath.section {
+        case 0 :
+            return 120
+        case 1 :
+            return UITableView.automaticDimension
+        default :
+            return UITableView.automaticDimension
+        }
+ 
+    }
+    //각 행에 무엇을 나타낼지 결정하는 메소드
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
             
         case 0 :
             let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as! MemoCell
             cell.memoTextView.text = memo!
+            //cell.frame = CGRect(x: 0, y: 0, width: <#T##Int#>, height: <#T##Int#>)
+            
             return cell
         case 1 :
             let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
             let rowData = self.conditionList
-            cell.conditionLabel.text = rowData![indexPath.row]
+            cell.conditionLabel.text = rowData[indexPath.row]
             return cell
         default :
             let cell = tableView.dequeueReusableCell(withIdentifier: "benefitCell") as! BenefitCell
-            let rowData = self.SARList!
+            
+
+            let rowData = self.SARList
             //매장이름은 그냥 집어넣으면 되고
             cell.shopName.text = rowData[indexPath.row].0
             //레이블에 두 스트링을 합쳐서 넣어야 하므로 각각 추출해서 합성하고 레이블에 집어넣는다
