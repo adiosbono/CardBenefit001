@@ -34,10 +34,15 @@ class CardDAO {
         if fileMgr.fileExists(atPath: dbPath) == false {
             let dbSource = Bundle.main.path(forResource: "db", ofType: "sqlite")
             try! fileMgr.copyItem(atPath: dbSource!, toPath: dbPath)
+            print("번들에 들어있는 템플릿용 디비파일을 복사해서 문서디렉토리에 저장햇습니다")
         }
         
         //준비된 데이터베이스 파일을 바탕으로 FMDatabase객체 생성
         let db = FMDatabase(path: dbPath)
+        //임시로 디비가 저장된 경로를 표시함...찾아볼껴 수정되는지 진짜로
+        print(dbPath)
+        
+        
         return db
         
     }()
@@ -159,7 +164,7 @@ class CardDAO {
                 WHERE card_id = ?
 """
             
-            let rs = try self.fmdb.executeQuery(sql, values: [order, cardId])
+            try self.fmdb.executeUpdate(sql, values: [order, cardId])
             print("디비수정되엇숩니다")
         
         }catch let error as NSError {
@@ -178,7 +183,7 @@ class CardDAO {
                 WHERE card_id = ?
 """
             
-            let rs = try self.fmdb.executeQuery(sql, values: [cardId])
+            try self.fmdb.executeUpdate(sql, values: [cardId])
             print("디비내 데이터 한줄이 삭제되엇숩니다")
             
         }catch let error as NSError {
