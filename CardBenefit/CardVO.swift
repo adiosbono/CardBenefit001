@@ -17,6 +17,7 @@ struct CardVO {
     var traffic: Int
     var oversea: Int
     var memo: String?
+    var orders: Int
 }
 
 struct SARVO {

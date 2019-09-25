@@ -18,7 +18,7 @@ class CardToBenefitVC: UITableViewController {
     //상세화면 뷰컨트롤러 인스턴스
     //var uvc: UIViewController?
     //디비의 main 테이블에서 가져오는 자료형
-    var cardList: [(Int, String, String?, String?, Int, Int, String?)]!
+    var cardList: [(Int, String, String?, String?, Int, Int, String?, Int)]!
     //디비의 conditions 테이블에서 가져오는 자료형
     var conditionList: [String?]!
     //디비의 shop_adv_res 테이블에서 가져오는 자료형
@@ -27,7 +27,60 @@ class CardToBenefitVC: UITableViewController {
     //DAO객체
     let cardDAO = CardDAO()
     
+    //편집모드를 가능케하거나 불가능하게 하는 변수
     
+    //편집 버튼 안에 에디팅을 토글하는 기능을 넣는다
+    @IBAction func edit(_ sender: UIBarButtonItem) {
+        self.tableView.isEditing = !self.tableView.isEditing
+        sender.title = (self.tableView.isEditing) ? "완료" : "편집"
+    }
+    
+    //편집시 움직이게 하는 함수
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        //앱 화면상 및 현재 디비에서 읽어온 녀석 수정하기
+        let movedObjTemp = cardList[sourceIndexPath.row]
+        //아래두줄은 원래데이터를 바꾸는것.
+        cardList.remove(at: sourceIndexPath.row)
+        cardList.insert(movedObjTemp, at: destinationIndexPath.row)
+        
+        //데이터베이스 상의 orders 값 모두 다시 수정하기(현재 배열순서대로 값을 1부터 차례대로 재설정)
+        //1부터 카드리스트 배열의 개수만큼 순회한다.
+        for index in 1...cardList.count{
+            // cardList[index-1].0이 의미하는것은 cardId값임
+            cardDAO.reorder(cardId: cardList[index-1].0, order: index)
+        }
+ 
+        //현재 변동사항이 잘 반영되긴 하는데.....앱을 껏다가 다시 키면 변동사항이 저장되어있지 않음....
+        
+        
+          //왜 강제 해제해야하는지 잘 모르겠지만 하여튼...
+        /*
+        if var tempCardList = cardList {
+        tempCardList.remove(at: sourceIndexPath.item)
+        tempCardList.insert(movedObjTemp, at: destinationIndexPath.item)
+        //데이터베이스상에 있는것 수정하기
+        cardDAO.reorder(cardId: <#T##Int#>, order: <#T##Int#>)
+            
+            
+        }else{
+            print("카드리스트 복사하는데 에러낫슴용")
+        }
+ */
+    }
+    
+    //테이블 한 행 삭제하는 함수
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            //삭제순서는 디비, 데이터소스, 테이블뷰
+            cardDAO.delete(cardId: cardList[indexPath.row].0)
+            cardList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            
+        }
+    }
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

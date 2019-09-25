@@ -24,13 +24,24 @@ class DetailBenefitVC: UITableViewController {
     //DAO객체
     let cardDAO = CardDAO()
     
+    //toEdit함수는 네비게이션 바 우측 상단의 에디트 버튼을 눌렀을때 새로운 화면으로 전환시켜주는 역할임 //dvc는 destination ViewController줄임말임
+    @objc func toEdit() {
+        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "EditBenefit") as! EditBenefitVC //스토리보드 아이디가 디테일임....
+        //전달하려는 값이 있는 경우 값을 전달한다.
+    
+        //네비게이션컨트롤러를 이용한 화면전환 실시
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //디비에서 데이터 가져오기
         self.conditionList = self.cardDAO.findCondition(cardId: cardId!)
         self.SARList = self.cardDAO.findSAR(cardId: cardId!)
         
-        
+        //프로그래밍 방식으로 네비게이션 바 버튼 만들기 //toEdit라는 함수를 실행하도록 하였다.
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toEdit))
+        self.navigationItem.rightBarButtonItem = editButton
         self.navigationItem.title = cardName
         
     }

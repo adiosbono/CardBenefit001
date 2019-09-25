@@ -15,7 +15,7 @@ class CardDAO {
     //CardVO에 들어있는순서대로 cardId, cardName, image, nickName, traffic, oversea, memo
     //차이점이라고 한다면 image가 데이터베이스에는 이름만 저장되므로 여기선 String?이지만 CardVO에선 UIImage?임
     //튜플객체임
-    typealias CardRecord = (Int, String, String?, String?, Int, Int, String?) //메인테이블용
+    typealias CardRecord = (Int, String, String?, String?, Int, Int, String?, Int) //메인테이블용
     //순서대로 condition
     typealias ConditionRecord = String?//컨디션테이블용
     //순서대로 shop, advantage, restrict
@@ -59,9 +59,9 @@ class CardDAO {
         do{
             //카드목록을 가져올 sql작성 및 쿼리 실행
             let sql = """
-                SELECT card_id, card_name, image_name, nick_name, transportation, foreign_use, memo
+                SELECT card_id, card_name, image_name, nick_name, transportation, foreign_use, memo, orders
                 FROM main
-                ORDER BY card_id ASC
+                ORDER BY orders ASC
 """
             
             let rs = try self.fmdb.executeQuery(sql, values: nil)
@@ -75,8 +75,9 @@ class CardDAO {
                 let transport = rs.int(forColumn: "transportation")
                 let foreign = rs.int(forColumn: "foreign_use")
                 let memo = rs.string(forColumn: "memo")
+                let orders = rs.int(forColumn: "orders")
                 //CardVO에 들어있는순서대로 cardId, cardName, image, nickName, traffic, oversea, memo
-                cardList.append((Int(cardId), cardName!, imageName, nickName, Int(transport), Int(foreign), memo ))
+                cardList.append((Int(cardId), cardName!, imageName, nickName, Int(transport), Int(foreign), memo, Int(orders) ))
             }
             
         }catch let error as NSError {
@@ -147,5 +148,42 @@ class CardDAO {
         return SARList
     }
     
+    //orders 컬럼의 값을 수정할 함수. 인자값으로 cardId(레코드특정위함)와 order(수정하려는 순서값)를 받는다. 데이터베이스 수정이 목표기 때문에 값을 따로 반환할 필요는 없다.
+    func reorder(cardId: Int, order: Int){
+        
+        do{
+            //cardId를 통해 특정한 레코드를 찾아 그 레코드의 orders 컬럼의 값을 인자로 받은 order값으로 바꾼다
+            let sql = """
+                UPDATE main
+                SET orders = ?
+                WHERE card_id = ?
+"""
+            
+            let rs = try self.fmdb.executeQuery(sql, values: [order, cardId])
+            print("디비수정되엇숩니다")
+        
+        }catch let error as NSError {
+            print("Failed: \(error.localizedDescription)")
+        }
+    }
     
+    
+    //카드정보 삭제할 함수. 인자값으로 cardId를 받는다
+    func delete(cardId: Int){
+        
+        do{
+            //cardId를 통해 특정한 레코드를 찾아 그 레코드의 orders 컬럼의 값을 인자로 받은 order값으로 바꾼다
+            let sql = """
+                DELETE FROM main
+                WHERE card_id = ?
+"""
+            
+            let rs = try self.fmdb.executeQuery(sql, values: [cardId])
+            print("디비내 데이터 한줄이 삭제되엇숩니다")
+            
+        }catch let error as NSError {
+            print("Failed: \(error.localizedDescription)")
+        }
+        
+    }
 }

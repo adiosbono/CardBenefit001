@@ -18,6 +18,8 @@
 		04659B9B232E766F0085692C /* CardBenefitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B9A232E766F0085692C /* CardBenefitUITests.swift */; };
 		04659BA9232E87490085692C /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BA8232E87490085692C /* FMDB.framework */; };
 		04659BAB232E87520085692C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BAA232E87520085692C /* Alamofire.framework */; };
+		04FB302B233A61A700AE2A51 /* EditBenefitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB302A233A61A700AE2A51 /* EditBenefitVC.swift */; };
+		04FB302D233A68C200AE2A51 /* CardEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB302C233A68C200AE2A51 /* CardEditVC.swift */; };
 		04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C6D233779E2006B1220 /* CardCell.swift */; };
 		04FB8C71233787BE006B1220 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04FB8C70233787BE006B1220 /* db.sqlite */; };
 		04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */; };
@@ -65,6 +67,8 @@
 		04659B9C232E766F0085692C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04659BA8232E87490085692C /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659BAA232E87520085692C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04FB302A233A61A700AE2A51 /* EditBenefitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBenefitVC.swift; sourceTree = "<group>"; };
+		04FB302C233A68C200AE2A51 /* CardEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditVC.swift; sourceTree = "<group>"; };
 		04FB8C6D233779E2006B1220 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		04FB8C70233787BE006B1220 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = db.sqlite; path = dbSource/db.sqlite; sourceTree = SOURCE_ROOT; };
 		04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBenefitVC.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */,
 				04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */,
 				04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */,
+				04FB302A233A61A700AE2A51 /* EditBenefitVC.swift */,
+				04FB302C233A68C200AE2A51 /* CardEditVC.swift */,
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04659B7B232E766B0085692C /* Main.storyboard */,
@@ -382,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FB302D233A68C200AE2A51 /* CardEditVC.swift in Sources */,
 				04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */,
 				04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */,
 				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
@@ -392,6 +399,7 @@
 				04FFBFDD232FA73500712680 /* CardDAO.swift in Sources */,
 				04659B78232E766B0085692C /* AppDelegate.swift in Sources */,
 				04FFBFD9232FA3BA00712680 /* CardToBenefitVC.swift in Sources */,
+				04FB302B233A61A700AE2A51 /* EditBenefitVC.swift in Sources */,
 				04FFBFDB232FA55600712680 /* CardVO.swift in Sources */,
 				04FB8C752337907E006B1220 /* TableVCTemplateVC.swift in Sources */,
 			);
