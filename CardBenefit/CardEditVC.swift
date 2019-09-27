@@ -2,7 +2,7 @@
 //  CardEditVC.swift
 //  CardBenefit
 //
-//  Created by Bono b Bono on 25/09/2019.
+//  Created by Bono b Bono on 27/09/2019.
 //  Copyright © 2019 Bono b Bono. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import UIKit
 
 class CardEditVC: UIViewController{
     
-    //우측 바버튼을 눌럿을때 실행될 함수임
+    //우측 바버튼(done버튼)을 눌럿을때 실행될 함수임
     @objc func finished() {
         
     }

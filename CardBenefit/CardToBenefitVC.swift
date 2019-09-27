@@ -27,7 +27,7 @@ class CardToBenefitVC: UITableViewController {
     //DAO객체
     let cardDAO = CardDAO()
     
-    //편집모드를 가능케하거나 불가능하게 하는 변수
+    
     
     //편집 버튼 안에 에디팅을 토글하는 기능을 넣는다
     @IBAction func edit(_ sender: UIBarButtonItem) {
@@ -87,6 +87,9 @@ class CardToBenefitVC: UITableViewController {
         self.cardList = self.cardDAO.findMain()
         //카드명 셀을 눌렀을때 가져올 뷰컨트롤러를 미리 가져다놓는다
         //uvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail")
+        
+        //편집화면일때 선택이 가능하도록 허용한다
+        self.tableView.allowsSelectionDuringEditing = true
     }
     //화면이 나타날때마다 호출되는 메소드
     override func viewWillAppear(_ animated: Bool) {
@@ -123,6 +126,18 @@ class CardToBenefitVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //에디트모드에서 선택된경우와 그렇지 않은 경우를 분기해서 각기 다른 화면으로 넘겨주어야 함
+        if(tableView.isEditing == true) {
+            //화면을 전환한 뷰 컨트롤러를 Storyboard ID 정보를 이용하여 읽어와 객채로 생성한다(p3,636)
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "EditCard") as! CardEditVC
+                //전달할 데이터를 넘기자
+                
+                
+                //네비게이션컨트롤러를 이용한 화며 전환 실시
+                self.navigationController?.pushViewController(uvc, animated: true)
+            
+        }else{
+        
         /*
         //화면을 전환한 뷰 컨트롤러를 Storyboard ID 정보를 이용하여 읽어와 객채로 생성한다(p3,636)
         if let uvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail"){
@@ -138,7 +153,7 @@ class CardToBenefitVC: UITableViewController {
         
         //let dvc = DetailBenefitVC() //이따구로 생성하면 잦된다잉. 스토리보드 아이디를 읽어와서 생성하여라
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
         
         let dvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailBenefitVC //스토리보드 아이디가 디테일임....
         //전달하려는 값을 준다.
@@ -148,6 +163,7 @@ class CardToBenefitVC: UITableViewController {
         //네비게이션컨트롤러를 이용한 화면전환 실시
         self.navigationController?.pushViewController(dvc, animated: true)
         }
+    }
  
     
     //테이블 뷰의 섹션의 수 결정하는 메소드 따로 오버라이드 하지 않으면 기본값은 1임
