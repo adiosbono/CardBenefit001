@@ -131,8 +131,32 @@ class CardToBenefitVC: UITableViewController {
             //화면을 전환한 뷰 컨트롤러를 Storyboard ID 정보를 이용하여 읽어와 객채로 생성한다(p3,636)
             let uvc = self.storyboard?.instantiateViewController(withIdentifier: "EditCard") as! CardEditVC
                 //전달할 데이터를 넘기자
-                
-                
+            //디버깅을 위해서 넘기기 전의 값이 각각 어떤 값을 가지고 있는지 확인해보자
+            /*
+            print(cardList[indexPath.row].0)
+            print(cardList[indexPath.row].1)
+            print(cardList[indexPath.row].2 ?? "nil값임다2")
+            print(cardList[indexPath.row].3 ?? "nil값임다3")
+            print(cardList[indexPath.row].4)
+            print(cardList[indexPath.row].5)
+            */
+            uvc.cardId = cardList[indexPath.row].0
+            uvc.cardName = cardList[indexPath.row].1
+            uvc.image = cardList[indexPath.row].2
+            uvc.nickName = cardList[indexPath.row].3
+            uvc.traffic = cardList[indexPath.row].4 == 1 ? true : false
+            uvc.oversea = cardList[indexPath.row].5 == 1 ? true : false
+            
+            
+            //디버깅을 위해서 넘긴 후 uvc내의 값이 어떤 값인지 확인해보자
+            /*
+            print(uvc.cardId)
+            print(uvc.cardName)
+            print(uvc.image)
+            print(uvc.nickName)
+            print(uvc.traffic)
+            print(uvc.oversea)
+ */
                 //네비게이션컨트롤러를 이용한 화며 전환 실시
                 self.navigationController?.pushViewController(uvc, animated: true)
             

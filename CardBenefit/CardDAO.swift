@@ -191,4 +191,30 @@ class CardDAO {
         }
         
     }
+    
+    //카드의 정보를 수정할때 사용할 함수
+    func editCardAttribute(cardId: Int, cardName: String, nickName: String?, image: String?, traffic: Bool, oversea: Bool){
+        
+        do{
+            
+            
+            //카드 속성들을 각각 입력받아서 데이터베이스에 입력한다.
+            let sql = """
+                UPDATE main
+                SET card_name = ?, nick_name = ?, image_name = ?, transportation = ?, foreign_use = ?
+                WHERE card_id = ?
+"""
+            //자료형이 맞지 않다는 주의사항이 뜨는데... 별명을 원래는 없었는데 이번에 새로 넣는 경우가 잇기 때문에 그냥 둠
+            try self.fmdb.executeUpdate(sql, values: [cardName, nickName, image, traffic, oversea, cardId])
+            print("디비내 데이터의 내용을 변경하였습니다.")
+            
+        }catch let error as NSError {
+            print("Failed: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    
+    
+    
 }

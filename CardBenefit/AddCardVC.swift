@@ -49,12 +49,14 @@ class AddCardVC: UIViewController, UITextFieldDelegate{
         //별칭 및 이미지를 제외하고 값이 없는경우 알라트 띄운다
         if cardName == nil {
             self.alert("카드이름을 입력해주세요")
-        }
-        if traffic == nil {
+        }else if traffic == nil {
             self.alert("교통카드 사용가능여부를 체크해주세요")
-        }
-        if oversea == nil{
+        }else if oversea == nil{
             self.alert("해외결제 가능여부를 체크해주세요")
+        }else {
+            //원래 화면으로 돌아가는 로직
+            self.navigationController?.popViewController(animated: true)
+            
         }
         
     }
@@ -74,5 +76,15 @@ class AddCardVC: UIViewController, UITextFieldDelegate{
         //텍스트필드 딜리게이트 설정
         cardNameField.delegate = self
         nickNameField.delegate = self
+    }
+    
+    //교통카드사용가능여부 바뀌었을때 임시변수에 저장하는 메소드
+    @objc func trafficValueChanged() {
+        self.traffic = (self.trafficSegment.selectedSegmentIndex == 1) ? true : false
+        
+    }
+    //해외결제가능여부 바뀌었을때 임시변수에 저장하는 메소드
+    @objc func overseaValueChanged() {
+        self.oversea = (self.overseaSegment.selectedSegmentIndex == 1) ? true : false
     }
 }
