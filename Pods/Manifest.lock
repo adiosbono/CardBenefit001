@@ -1,16 +1,22 @@
 PODS:
   - Alamofire (4.8.2)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - FMDB
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - FMDB
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
 
-PODFILE CHECKSUM: a6fcb93f92f9aefede0a98b667f412c70948fdde
+PODFILE CHECKSUM: abce6884df53f1bec391db3ea91b4f4cbf617d27
 
 COCOAPODS: 1.7.5
