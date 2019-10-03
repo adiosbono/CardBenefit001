@@ -66,7 +66,7 @@ class AddCardVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
         }else if oversea == nil{
             self.alert("해외결제 가능여부를 체크해주세요")
         }else {
-            //현재 입력된 내용을 바탕으로 디비입력작업 개시
+            //현재 입력된 내용을 바탕으로 디비입력작업 개시 뻑큐
             
             
             

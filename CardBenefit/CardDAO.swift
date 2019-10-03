@@ -233,7 +233,7 @@ class CardDAO {
                         WHERE card_id = ?
         """
                     
-                    try self.fmdb.executeUpdate(sql, values: [cardName, nickName, image, traffic, oversea, cardId])
+                    try self.fmdb.executeUpdate(sql, values: [cardName, nickName, image, traffic, oversea])
                     print("디비내 데이터의 내용을 변경하였습니다.")
                     
                 }catch let error as NSError {
