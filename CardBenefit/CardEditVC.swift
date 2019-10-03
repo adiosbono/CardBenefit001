@@ -12,7 +12,8 @@ import UIKit
 class CardEditVC: UIViewController, UITextFieldDelegate{
     
     //내가 생각하는 곧 터질 에러의 주범!!!디비 DAO클라스!!!주의!!!폭발위험
-    var cardDAO : CardDAO!
+    //시발 에러원인은 바로 여기였음....시벌시벌 대입을 해서 초기화를 해놔야 되는데....타입어노테이션만 해놈 멍청이
+    let cardDAO = CardDAO()
     
     
     
@@ -27,8 +28,8 @@ class CardEditVC: UIViewController, UITextFieldDelegate{
     //화면에 미리 입력해둘 데이터들을 넘겨받을 임시변수들을 정의한다.
     var cardId: Int!
     var cardName: String!
-    var image: String?
-    var nickName: String?
+    var image: String! //원래는 옵셔널이엇으나 디비에서 가져오는값에는 nil이 없으므로...
+    var nickName: String! //원래는 옵셔널이엇으나 디비에서 가져오는값에는 nil이 없으므로...
     var traffic: Bool!
     var oversea: Bool!
     
@@ -40,10 +41,20 @@ class CardEditVC: UIViewController, UITextFieldDelegate{
     
     //우측 바버튼(done버튼)을 눌럿을때 실행될 함수임
     @objc func finished() {
+        //사용자가 텍스트 입력후 엔터키 안치고 바로 done버튼 누르는 경우가 있는데 이때도 입력한것이 저장되도록 해놔야 디비에 반영됨
+        if cardNameField.hasText == true {
+            cardName = cardNameField.text
+        }
+        if nickNameField.hasText == true {
+            nickName = nickNameField.text
+        }
         
         //오류나는 이유는 바로 DAO클라스의 함수를 실행할 때에 nil값이 쳐 들어가기 때문임...
-        //이걸 잡기 위해선 DAO클라스 내에 입력값 검사 로직을 둬서 값이 nil일땐 디비 수정을 안하도록 해야할듯
+        //이걸 잡기 위해선 DAO클라스 내에 입력값 검사 로직을 둬서 값이 nil일땐 디비 수정을 안하도록
         //디버깅을 위해서 변수에 있는 값들을 출력하도록 해봄
+        //출력해보았더니...값들이 역시나 전부 다 옵셔널값으로 나오길래(위의 변수 설정값은 깡그리 무시되고 옵셔널로 찍힘)강제로 캐스팅해봤더니 옵셔널이 풀리긴 함...
+        //신기한걸 깨달았다. 디비내에서 아무 값도 없는 상태를 읽어와서 변수에 대입하면...변수는 어떤 값을 가질것 같은가? 정답은 '빈값'이다. 즉 "" 이자식이 들어가는 것이다. 맨 처음부터 데이터베이스를 설계할때 빈 값을 가져올 것을 대비해서 옵셔널을 제공했던것은 미련했던 짓이다. nil값을 반환하는 경우가 아예 없기 때문이다시부러러러러러러러러럴
+        //결국 editCardAttribute함수가 제대로 실행되지 않는 것은.... 그 함수 내에 문제가 있는거라고 생각된다....어휴
         print(self.cardId)
         print(self.cardName)
         print(self.nickName)
@@ -51,9 +62,21 @@ class CardEditVC: UIViewController, UITextFieldDelegate{
         print(self.traffic)
         print(self.oversea)
         
+        if(cardDAO == nil){
+            print("cardDAO is nill");
+        } else {
+            print("cardDAO is not nill")
+        }
         
         //잠깐만 주석처리해놈...실행되나좀 보게
-        cardDAO.editCardAttribute(cardId: cardId, cardName: cardName, nickName: nickName, image: image, traffic: traffic, oversea: oversea)
+        cardDAO.editCardAttribute(
+            cardId: self.cardId,
+            cardName: self.cardName,
+            nickName: self.nickName,
+            image: self.image,
+            traffic: self.traffic,
+            oversea: self.oversea
+        )
         print("카드내용변경 완료!")
         
         //화면 뒤로가기 구현해야함
@@ -93,5 +116,15 @@ class CardEditVC: UIViewController, UITextFieldDelegate{
     //해외결제 세그먼트 값 변동시 실행될 함수
     @objc func overseaValueChange() {
         self.oversea = self.overseaSegment.selectedSegmentIndex == 1 ? true : false
+    }
+    
+    //텍스트필드에 입력된 값을 임시변수에 집어넣는다
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if cardNameField.hasText == true {
+            cardName = cardNameField.text
+        }
+        if nickNameField.hasText == true {
+            nickName = nickNameField.text
+        }
     }
 }

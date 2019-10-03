@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //UITextFieldDelegate는 텍스트필드를 사용하기 위한것
-class AddCardVC: UIViewController, UITextFieldDelegate{
+class AddCardVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
     //작성내용을 임시 저장해 둘 변수들
     var cardName: String?
@@ -18,13 +18,25 @@ class AddCardVC: UIViewController, UITextFieldDelegate{
     var traffic: Bool?
     var oversea: Bool?
     var image: UIImage?
+    var memo: String?
     
     //화면상에 나타난 컨트롤들을 연결
     @IBOutlet var cardNameField: UITextField!
     @IBOutlet var nickNameField: UITextField!
     @IBOutlet var trafficSegment: UISegmentedControl!
     @IBOutlet var overseaSegment: UISegmentedControl!
+    @IBOutlet var memoView: UITextView!
     @IBAction func uploadImage(_ sender: UIButton) {
+    }
+    
+    //메모 텍스트 뷰 입력완료시 임시저장한다.
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.memo = textView.text
+    }
+    
+    //메모 텍스트뷰 수정시 중간작업내용을 저장한다
+    func textViewDidChange(_ textView: UITextView) {
+        self.memo = textView.text
     }
     
     //카드명 텍스트필드의 입력 완료시 임시저장한다.
@@ -54,6 +66,12 @@ class AddCardVC: UIViewController, UITextFieldDelegate{
         }else if oversea == nil{
             self.alert("해외결제 가능여부를 체크해주세요")
         }else {
+            //현재 입력된 내용을 바탕으로 디비입력작업 개시
+            
+            
+            
+            
+            
             //원래 화면으로 돌아가는 로직
             self.navigationController?.popViewController(animated: true)
             
@@ -73,9 +91,17 @@ class AddCardVC: UIViewController, UITextFieldDelegate{
         self.trafficSegment.selectedSegmentIndex = -1
         self.overseaSegment.selectedSegmentIndex = -1
         
+        //세그먼트컨트롤 값이 변경되면 임시변수에 저장되도록 함수에 연결
+        self.trafficSegment.addTarget(self, action: #selector(trafficValueChanged), for: .valueChanged)
+        
+        self.overseaSegment.addTarget(self, action: #selector(overseaValueChanged), for: .valueChanged)
+        
         //텍스트필드 딜리게이트 설정
         cardNameField.delegate = self
         nickNameField.delegate = self
+        
+        //메모텍스트뷰 딜리게이트 설정
+        memoView.delegate = self
     }
     
     //교통카드사용가능여부 바뀌었을때 임시변수에 저장하는 메소드

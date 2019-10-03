@@ -86,7 +86,7 @@ class CardDAO {
             }
             
         }catch let error as NSError {
-            print("Failed: \(error.localizedDescription)")
+            print("Failed from db: \(error.localizedDescription)")
         }
         return cardList
     }
@@ -116,7 +116,7 @@ class CardDAO {
             }
             
         }catch let error as NSError {
-            print("Failed: \(error.localizedDescription)")
+            print("Failed from db: \(error.localizedDescription)")
         }
         return conditionList
     }
@@ -148,7 +148,7 @@ class CardDAO {
             }
             
         }catch let error as NSError {
-            print("Failed: \(error.localizedDescription)")
+            print("Failed from db: \(error.localizedDescription)")
         }
         return SARList
     }
@@ -168,7 +168,7 @@ class CardDAO {
             print("디비수정되엇숩니다")
         
         }catch let error as NSError {
-            print("Failed: \(error.localizedDescription)")
+            print("Failed from db: \(error.localizedDescription)")
         }
     }
     
@@ -187,17 +187,25 @@ class CardDAO {
             print("디비내 데이터 한줄이 삭제되엇숩니다")
             
         }catch let error as NSError {
-            print("Failed: \(error.localizedDescription)")
+            print("Failed from db: \(error.localizedDescription)")
         }
         
     }
     
     //카드의 정보를 수정할때 사용할 함수
-    func editCardAttribute(cardId: Int, cardName: String, nickName: String?, image: String?, traffic: Bool, oversea: Bool){
-        
+    //디비에서 넘겨받는 값들중엔 옵셔널이 아예 없기 때문에 인자값이 옵셔널일 경우를 전혀 고려하지 않아도 된다. 읽었는데 암것도 안들어있었다면 빈값을 읽어오기 때문이다.
+    func editCardAttribute(cardId: Int, cardName: String, nickName: String, image: String, traffic: Bool, oversea: Bool){
+      
         do{
-            
-            
+            /*
+            //디버깅을 위한 프린트 구문입니당
+            print("DAO함수로 보내진 값: \(cardId)")
+            print("DAO함수로 보내진 값: \(cardName)")
+            print("DAO함수로 보내진 값: \(nickName)")
+            print("DAO함수로 보내진 값: \(image)")
+            print("DAO함수로 보내진 값: \(traffic)")
+            print("DAO함수로 보내진 값: \(oversea)")
+            */
             //카드 속성들을 각각 입력받아서 데이터베이스에 입력한다.
             let sql = """
                 UPDATE main
@@ -209,11 +217,31 @@ class CardDAO {
             print("디비내 데이터의 내용을 변경하였습니다.")
             
         }catch let error as NSError {
-            print("Failed: \(error.localizedDescription)")
+            print("Failed from db: \(error.localizedDescription)")
         }
         
     }
     
+    //새로운 카드를 입력시 그것을 디비에 저장할때 사용할 함수
+    func addCard(cardName: String, image: String, nickName: String, traffic: Bool, oversea: Bool){
+        
+        do{
+                    
+                    let sql = """
+                        UPDATE main
+                        SET card_name = ?, nick_name = ?, image_name = ?, transportation = ?, foreign_use = ?
+                        WHERE card_id = ?
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: [cardName, nickName, image, traffic, oversea, cardId])
+                    print("디비내 데이터의 내용을 변경하였습니다.")
+                    
+                }catch let error as NSError {
+                    print("Failed from db: \(error.localizedDescription)")
+                }
+        
+        
+    }
     
     
     

@@ -93,6 +93,8 @@ class CardToBenefitVC: UITableViewController {
     }
     //화면이 나타날때마다 호출되는 메소드
     override func viewWillAppear(_ animated: Bool) {
+        //데이터베이스를 다시 읽어 온뒤에 테이블뷰를 리로드 해야 하므로 먼저 읽어오는걸 한다.
+        self.cardList = self.cardDAO.findMain()
         //테이블뷰를 리로드하기(새로고침)
         self.tableView.reloadData()
     }
@@ -157,6 +159,9 @@ class CardToBenefitVC: UITableViewController {
             print(uvc.traffic)
             print(uvc.oversea)
  */
+            
+            //큰 깨달음을 얻엇다. 뷰컨트롤러간 값 전달을 하는 경우에 뷰 컨트롤러를 읽어와서 그걸 특정한 클래스로 다운캐스팅한뒤 그 다운캐스팅한녀석 안의 값에 전달할 값을 넣어주게 된다.  전달하는 값은 옵셔널이 아닐지라도 캐스팅된 녀석안의 값(전달받는변수녀석)은 옵셔널로 처리된다.
+            //시벌 왜그러는지 잘 모르겠지만 시스템상에 값 전달시에 모두 옵셔널로 캐스팅하는것으로 판단되므로....이 값을 옵셔널이 아닌 상태로 쓰기 위해서는 전달 받은 녀석의 값을 내부적으로 모두 강제 캐스팅 해야 할 것이다.....시부럴탱
                 //네비게이션컨트롤러를 이용한 화며 전환 실시
                 self.navigationController?.pushViewController(uvc, animated: true)
             
