@@ -223,21 +223,21 @@ class CardDAO {
     }
     
     //새로운 카드를 입력시 그것을 디비에 저장할때 사용할 함수
-    func addCard(cardName: String, image: String, nickName: String, traffic: Bool, oversea: Bool){
+    func addCard(cardName: String, image: String, nickName: String, traffic: Bool, oversea: Bool, memo: String?, order: Int){
         
         do{
                     
+            
+            
                     let sql = """
-                        UPDATE main
-                        SET card_name = ?, nick_name = ?, image_name = ?, transportation = ?, foreign_use = ?
-                        WHERE card_id = ?
+                        INSERT INTO main(card_name, image_name, nick_name, transportation, foreign_use, memo, orders) VALUES (?, ?, ?, ?, ?, ?, ?)
         """
                     
-                    try self.fmdb.executeUpdate(sql, values: [cardName, nickName, image, traffic, oversea])
-                    print("디비내 데이터의 내용을 변경하였습니다.")
+                    try self.fmdb.executeUpdate(sql, values: [cardName, image, nickName, traffic, oversea, memo, order])
+                    print("새로운 디비 값을 입력하였습니다.")
                     
                 }catch let error as NSError {
-                    print("Failed from db: \(error.localizedDescription)")
+                    print("Failed from db insertion: \(error.localizedDescription)")
                 }
         
         

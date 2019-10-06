@@ -238,7 +238,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="카드추가" id="WU6-xk-vpc">
                             <connections>
-                                <segue destination="jzM-Zr-lni" kind="show" id="8XW-Pf-xaq"/>
+                                <action selector="addCard:" destination="x6f-xZ-ow1" id="Opg-On-lN7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -250,7 +250,7 @@
         <!--Add CardVC-->
         <scene sceneID="VuJ-eo-Yev">
             <objects>
-                <viewController id="jzM-Zr-lni" customClass="AddCardVC" customModule="CardBenefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCard" id="jzM-Zr-lni" customClass="AddCardVC" customModule="CardBenefit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wuW-7c-uLC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

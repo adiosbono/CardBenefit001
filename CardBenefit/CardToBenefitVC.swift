@@ -35,6 +35,17 @@ class CardToBenefitVC: UITableViewController {
         sender.title = (self.tableView.isEditing) ? "완료" : "편집"
     }
     
+    //카드추가 버튼을 누른 경우 화면전환과 함께 현재 테이블뷰 셀의 갯수를 전달한다
+    @IBAction func addCard(_ sender: UIBarButtonItem) {
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "AddCard") as! AddCardVC
+        //값을 전달한다
+        uvc.cardCount = self.cardList.count
+            
+            self.navigationController?.pushViewController(uvc, animated: true)
+        
+    }
+    
+    
     //편집시 움직이게 하는 함수
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         //앱 화면상 및 현재 디비에서 읽어온 녀석 수정하기

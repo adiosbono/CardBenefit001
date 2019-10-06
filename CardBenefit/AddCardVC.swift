@@ -12,12 +12,18 @@ import UIKit
 //UITextFieldDelegate는 텍스트필드를 사용하기 위한것
 class AddCardVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
+    //CardToBenefitVC로부터 전달받을 현재 카드 갯수(이 숫자는 새로 카드 만들때 적어줘야 할 ORDERS 항목때문에 필요함
+    var cardCount: Int!
+    
+    //DAO객체
+    let cardDAO = CardDAO()
+    
     //작성내용을 임시 저장해 둘 변수들
     var cardName: String?
     var nickName: String?
     var traffic: Bool?
     var oversea: Bool?
-    var image: UIImage?
+    var image: String?
     var memo: String?
     
     //화면상에 나타난 컨트롤들을 연결
@@ -67,8 +73,31 @@ class AddCardVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
             self.alert("해외결제 가능여부를 체크해주세요")
         }else {
             //현재 입력된 내용을 바탕으로 디비입력작업 개시 뻑큐
+            //디비입력시 사용자가 입력하지 않은 내용에 대해서는 빈값을 넣는것으로 대체하고자 함.
+            var _nickName: String!
+            var _image: String!
+            var _memo: String!
+            
+            if self.nickName == nil {
+                _nickName = ""
+            }else{
+                _nickName = self.nickName
+            }
+            if self.image == nil {
+                _image = ""
+            }else{
+                _image = self.image
+            }
+            if self.memo == nil {
+                _memo = ""
+            }else{
+                _memo = self.memo
+            }
             
             
+            cardDAO.addCard(cardName: self.cardName!, image: _image, nickName: _nickName, traffic: self.traffic!, oversea: self.oversea!, memo: _memo, order: self.cardCount+1)
+            print("카드추가가 완료되엇습니드앙")
+        
             
             
             
