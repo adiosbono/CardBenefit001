@@ -15,6 +15,8 @@ class DetailBenefitVC: UITableViewController {
     var cardName: String!
     var memo: String?
     
+
+    
     //디비의 conditions 테이블에서 가져오는 자료형
     var conditionList = [String?]()
     //디비의 shop_adv_res 테이블에서 가져오는 자료형
@@ -26,11 +28,27 @@ class DetailBenefitVC: UITableViewController {
     
     //toEdit함수는 네비게이션 바 우측 상단의 에디트 버튼을 눌렀을때 새로운 화면으로 전환시켜주는 역할임 //dvc는 destination ViewController줄임말임
     @objc func toEdit() {
+        
+        //맨처음 계획은 새로운 화면으로 이동하여 설정하려는 것이었으나...실질적으로 새 화면으로 이동했을때 얻는 이득이 없다고 판단되므로, 현재 화면에서 에디트 모드를 토글하는것으로 변경하였다. 새 화면으로 이동하고 싶다면 아래의 주석을 해제하기 바람
+        /*
         let dvc = self.storyboard?.instantiateViewController(withIdentifier: "EditBenefit") as! EditBenefitVC //스토리보드 아이디가 디테일임....
         //전달하려는 값이 있는 경우 값을 전달한다.
     
         //네비게이션컨트롤러를 이용한 화면전환 실시
         self.navigationController?.pushViewController(dvc, animated: true)
+ */
+        
+        //새로운 계획 실시
+        self.tableView.isEditing = !self.tableView.isEditing
+        if tableView.isEditing == true {
+        self.navigationItem.rightBarButtonItem?.title = "Done"
+            
+        }else{
+            
+            self.navigationItem.rightBarButtonItem?.title = "Edit"
+        }
+        //화면을 다시 로드하여 변동된 에디트 모드에 대한 적용사항들이 나타나도록 한다
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -40,9 +58,12 @@ class DetailBenefitVC: UITableViewController {
         self.SARList = self.cardDAO.findSAR(cardId: cardId!)
         
         //프로그래밍 방식으로 네비게이션 바 버튼 만들기 //toEdit라는 함수를 실행하도록 하였다.
-        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toEdit))
+        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toEdit))
+    
         self.navigationItem.rightBarButtonItem = editButton
         self.navigationItem.title = cardName
+        
+        
         
     }
     
