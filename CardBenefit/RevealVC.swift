@@ -80,11 +80,13 @@ class RevealVC: UIViewController{
             //바로아래줄 에러나네 띠부럴.....현재 화면의 뷰 컨트롤러 인스턴스를 얻어야 한다!
             //let detailVC = vc.viewControllers[0] as? DetailBenefitVC
             
-            //이거 에러날 확률 되게 높음시벌탱.......
+            //이거 에러날 확률 되게 높음시벌탱.......에러안나고 잘됨ㅋㅋㅋㅋㅋㅋ대다나다
             vc.delegate = self
-            
         }
         
+        
+        
+           
         
         
     }
@@ -95,6 +97,13 @@ class RevealVC: UIViewController{
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_cc"){
                 //다른 메소드에서도 참조할 수 있도록 conditionVC속성에 저장해둔다
                 self.conditionVC = vc
+                
+                
+                //---------------------------------------------------------------------
+                //conditionVC의 딜리게이트 변수에 값을 집어넣어야 한다!
+                let _vc = vc as! ConditionVC
+                _vc.delegate = self
+                
                 //읽어온 컨디션추가 컨트롤러 객체를 컨테이너 뷰 컨트롤러에 연결한다.
                 self.addChild(vc)
                 self.view.addSubview(vc.view)
@@ -110,6 +119,13 @@ class RevealVC: UIViewController{
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_bc"){
                 //다른 메소드에서도 참조할 수 있도록 benefitsVC속성에 저장해둔다
                 self.benefitsVC = vc
+                
+                //---------------------------------------------------------------------
+                //BenefitsVC의 딜리게이트 변수에 값을 집어넣어야 한다!
+                let _vc = vc as! BenefitsVC
+                _vc.delegate = self
+                
+                
                 //읽어온 컨디션추가 컨트롤러 객체를 컨테이너 뷰 컨트롤러에 연결한다.
                 self.addChild(vc)
                 self.view.addSubview(vc.view)
