@@ -16,7 +16,8 @@ class DetailBenefitVC: UITableViewController {
     var memo: String?
     
     
-    
+    //사이드 바 오픈 기능을 위임할 델리게이트
+    var delegate: RevealVC?
 
     
     //디비의 conditions 테이블에서 가져오는 자료형
@@ -27,6 +28,9 @@ class DetailBenefitVC: UITableViewController {
     
     //DAO객체
     let cardDAO = CardDAO()
+    
+    
+    
     
     //toEdit함수는 네비게이션 바 우측 상단의 에디트 버튼을 눌렀을때 새로운 화면으로 전환시켜주는 역할임 //dvc는 destination ViewController줄임말임
     @objc func toEdit() {
@@ -60,6 +64,7 @@ class DetailBenefitVC: UITableViewController {
         self.SARList = self.cardDAO.findSAR(cardId: cardId!)
         
         //프로그래밍 방식으로 네비게이션 바 버튼 만들기 //toEdit라는 함수를 실행하도록 하였다.
+        //현재 사이드 뷰가 슉 나오는방식으로 하기 때문에 이거 없어도 무관함.......젠장
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toEdit))
     
         self.navigationItem.rightBarButtonItem = editButton
@@ -265,7 +270,7 @@ class DetailBenefitVC: UITableViewController {
             //추가버튼을 해당 섹션에 맞게 넣어줘야 되니깐 버튼을 각자 따로 만들어줘야한다.
             if self.tableView.isEditing == true {
             addButton.setTitle("추가", for: .normal)
-            addButton.addTarget(self, action: #selector(addCond), for: .touchUpInside)
+            addButton.addTarget(self, action: #selector(moveCondition), for: .touchUpInside)
             }
             
         case 2:
@@ -273,7 +278,7 @@ class DetailBenefitVC: UITableViewController {
             //추가버튼 넣기
             if self.tableView.isEditing == true {
             addButton.setTitle("추가", for: .normal)
-            addButton.addTarget(self, action: #selector(addBenefit), for: .touchUpInside)
+            addButton.addTarget(self, action: #selector(moveBenefit), for: .touchUpInside)
             }
             
         default:
@@ -289,14 +294,24 @@ class DetailBenefitVC: UITableViewController {
         return v
     }
     
-    //조건을 추가하는 메소드
-    @objc func addCond() {
-        print("addCond실행됨")
+    //조건을 추가하는 사이드 뷰를 열고 닫는 메소드
+    @objc func moveCondition(_ sender: Any) {
+        print("moveCondition실행됨")
+        if self.delegate?.isSideBarShowing == false {
+            self.delegate?.openConditionBar(nil) //사이드 바를 연다
+        }else{
+            self.delegate?.closeConditionBar(nil) //사이드 바를 닫는다
+        }
     }
     
-    //혜택을 추가하는 메소드
-    @objc func addBenefit() {
-        print("addBenefit실행됨")
+    //혜택을 추가하는 사이드 뷰를 열고 닫는 메소드
+    @objc func moveBenefit(_ sender: Any) {
+        print("moveBenefit실행됨")
+        if self.delegate?.isSideBarShowing == false {
+            self.delegate?.openBenefitBar(nil) //사이드 바를 연다
+        }else{
+            self.delegate?.closeBenefitBar(nil) //사이드 바를 닫는다
+        }
     }
     
     //각 섹션 헤더의 높이를 결정하는 메소드
