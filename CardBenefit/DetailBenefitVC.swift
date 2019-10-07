@@ -15,6 +15,8 @@ class DetailBenefitVC: UITableViewController {
     var cardName: String!
     var memo: String?
     
+    
+    
 
     
     //디비의 conditions 테이블에서 가져오는 자료형
@@ -38,7 +40,7 @@ class DetailBenefitVC: UITableViewController {
         self.navigationController?.pushViewController(dvc, animated: true)
  */
         
-        //새로운 계획 실시
+        //새로운 계획 실시(현재 화면에서 처리해부리기)
         self.tableView.isEditing = !self.tableView.isEditing
         if tableView.isEditing == true {
         self.navigationItem.rightBarButtonItem?.title = "Done"
@@ -248,14 +250,32 @@ class DetailBenefitVC: UITableViewController {
         let textHeader = UILabel(frame: CGRect(x: 35, y: 5, width: 200, height: 30))
         textHeader.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(rawValue: 2.5))
         textHeader.textColor = UIColor(red: 0.03, green: 0.28, blue: 0.71, alpha: 1.0)
+        
+        //헤더에 들어갈 버튼 정의
+        let addButton = UIButton(type: .custom)
+        //x좌표는 동적으로 실행하기 위해서 이러케 해놈
+        addButton.frame = CGRect(x: self.view.frame.size.width - 150, y: 5, width: 200, height: 30)
+        addButton.setTitleColor(UIColor.black, for: .normal)
         //섹션에 따라 타이틀 다르게 설정
         switch section {
         case 0:
             textHeader.text = "메모"
         case 1:
             textHeader.text = "카드사용조건"
+            //추가버튼을 해당 섹션에 맞게 넣어줘야 되니깐 버튼을 각자 따로 만들어줘야한다.
+            if self.tableView.isEditing == true {
+            addButton.setTitle("추가", for: .normal)
+            addButton.addTarget(self, action: #selector(addCond), for: .touchUpInside)
+            }
+            
         case 2:
             textHeader.text = "혜택"
+            //추가버튼 넣기
+            if self.tableView.isEditing == true {
+            addButton.setTitle("추가", for: .normal)
+            addButton.addTarget(self, action: #selector(addBenefit), for: .touchUpInside)
+            }
+            
         default:
             textHeader.text = "KissMyAss"
         }
@@ -263,15 +283,30 @@ class DetailBenefitVC: UITableViewController {
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         v.backgroundColor = UIColor(red: 0.93, green: 0.96, blue: 0.99, alpha: 1.0)
         v.addSubview(textHeader)
+        v.addSubview(addButton)
         
         
         return v
     }
+    
+    //조건을 추가하는 메소드
+    @objc func addCond() {
+        print("addCond실행됨")
+    }
+    
+    //혜택을 추가하는 메소드
+    @objc func addBenefit() {
+        print("addBenefit실행됨")
+    }
+    
     //각 섹션 헤더의 높이를 결정하는 메소드
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
  
+    
+    
+    
 }
 
 

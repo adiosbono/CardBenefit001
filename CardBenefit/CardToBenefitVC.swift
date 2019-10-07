@@ -140,6 +140,7 @@ class CardToBenefitVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //에디트모드에서 선택된경우와 그렇지 않은 경우를 분기해서 각기 다른 화면으로 넘겨주어야 함
+        //바로아래꺼는 에디트모드인경우
         if(tableView.isEditing == true) {
             //화면을 전환한 뷰 컨트롤러를 Storyboard ID 정보를 이용하여 읽어와 객채로 생성한다(p3,636)
             let uvc = self.storyboard?.instantiateViewController(withIdentifier: "EditCard") as! CardEditVC
@@ -177,7 +178,7 @@ class CardToBenefitVC: UITableViewController {
                 self.navigationController?.pushViewController(uvc, animated: true)
             
         }else{
-        
+        //에디트모드가 아닌경우
         /*
         //화면을 전환한 뷰 컨트롤러를 Storyboard ID 정보를 이용하여 읽어와 객채로 생성한다(p3,636)
         if let uvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail"){
@@ -195,7 +196,7 @@ class CardToBenefitVC: UITableViewController {
         
         //tableView.deselectRow(at: indexPath, animated: true)
         
-        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailBenefitVC //스토리보드 아이디가 디테일임....
+        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "Reveal") as! RevealVC //스토리보드 아이디가 Reveal임....
         //전달하려는 값을 준다.
         dvc.cardId = self.cardList[indexPath.row].0
         dvc.cardName = self.cardList[indexPath.row].1

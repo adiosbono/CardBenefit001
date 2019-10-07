@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B7234A3C7500F38585 /* ConditionVC.swift */; };
+		041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B9234A3C9300F38585 /* BenefitsVC.swift */; };
 		0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */; };
 		04659B78232E766B0085692C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B77232E766B0085692C /* AppDelegate.swift */; };
 		04659B7A232E766B0085692C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B79232E766B0085692C /* ViewController.swift */; };
@@ -28,6 +30,7 @@
 		04FB8C752337907E006B1220 /* TableVCTemplateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */; };
 		04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C762337AA7B006B1220 /* MemoCell.swift */; };
 		04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C782337ACE5006B1220 /* ConditionCell.swift */; };
+		04FE0DCF234B2A900054EB65 /* RevealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE0DCE234B2A900054EB65 /* RevealVC.swift */; };
 		04FFBFD9232FA3BA00712680 /* CardToBenefitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */; };
 		04FFBFDB232FA55600712680 /* CardVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFBFDA232FA55600712680 /* CardVO.swift */; };
 		04FFBFDD232FA73500712680 /* CardDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFBFDC232FA73500712680 /* CardDAO.swift */; };
@@ -52,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041F76B7234A3C7500F38585 /* ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionVC.swift; sourceTree = "<group>"; };
+		041F76B9234A3C9300F38585 /* BenefitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsVC.swift; sourceTree = "<group>"; };
 		0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		04659B74232E766B0085692C /* CardBenefit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardBenefit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659B77232E766B0085692C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 		04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVCTemplateVC.swift; sourceTree = "<group>"; };
 		04FB8C762337AA7B006B1220 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		04FB8C782337ACE5006B1220 /* ConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCell.swift; sourceTree = "<group>"; };
+		04FE0DCE234B2A900054EB65 /* RevealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealVC.swift; sourceTree = "<group>"; };
 		04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToBenefitVC.swift; sourceTree = "<group>"; };
 		04FFBFDA232FA55600712680 /* CardVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVO.swift; sourceTree = "<group>"; };
 		04FFBFDC232FA73500712680 /* CardDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDAO.swift; sourceTree = "<group>"; };
@@ -158,7 +164,10 @@
 				04FB8C742337907D006B1220 /* TableVCTemplateVC.swift */,
 				04FFBFD8232FA3BA00712680 /* CardToBenefitVC.swift */,
 				04FB8C7223378F77006B1220 /* DetailBenefitVC.swift */,
+				041F76B9234A3C9300F38585 /* BenefitsVC.swift */,
+				041F76B7234A3C7500F38585 /* ConditionVC.swift */,
 				04FB302A233A61A700AE2A51 /* EditBenefitVC.swift */,
+				04FE0DCE234B2A900054EB65 /* RevealVC.swift */,
 				04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */,
 				04FB302C233A68C200AE2A51 /* AddCardVC.swift */,
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
@@ -400,7 +409,10 @@
 				04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */,
 				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
 				04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */,
+				04FE0DCF234B2A900054EB65 /* RevealVC.swift in Sources */,
+				041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */,
 				04659B7A232E766B0085692C /* ViewController.swift in Sources */,
+				041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */,
 				04CCFA13233E41B200DE8BF8 /* Utils.swift in Sources */,
 				0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */,
 				04659B80232E766C0085692C /* CardBenefit.xcdatamodeld in Sources */,
