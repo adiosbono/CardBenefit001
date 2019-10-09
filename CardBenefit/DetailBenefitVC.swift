@@ -54,7 +54,7 @@ class DetailBenefitVC: UITableViewController {
             self.navigationItem.rightBarButtonItem?.title = "Edit"
         }
         //화면을 다시 로드하여 변동된 에디트 모드에 대한 적용사항들이 나타나도록 한다
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -71,9 +71,6 @@ class DetailBenefitVC: UITableViewController {
     
         self.navigationItem.rightBarButtonItem = editButton
         self.navigationItem.title = cardName
-        
-        
-        
     }
     
     //디비를 다시 읽어오는 메소드
@@ -136,101 +133,10 @@ class DetailBenefitVC: UITableViewController {
             cell.content.text = contentMerged
             return cell
         }
-        //여기다가 계속 UITableViewCell 반환해라고 에러가 계속 떳음 아래의 주석처리된 놈들은 실패작들임. 이유를 생각해보니......단한가지 떠오르는게 있음. 아래 주석처리된걸 보면 케이스절 아래 바로 딸려오는 이프절이 있는데, 이프절 내 값이 참일경우엔 cell반환하므로 문제없는데 만약에 반환하지 않는 경우에는 cell을 반환하지 않으므로 반환값이 없는 문제가 발생하는것이다. 그래서 셀포로앳 함수는 반환값이 제데로 있을수도, 없을수도 있는 상황에 놓인것이고, 확정적으로 반환값을 가질 수 없는 상태이기 때문에 계속 UITableViewCell을 반환해라고 요청했던것이다!
+        
         
     }
-    /*
-    //테이블 행을 구성하는 메소드
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //--------------------------------------------------------------------------
-        
-        
-        switch indexPath.section {
-            
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as! MemoCell
-            cell.memoTextView.text = memo!
-            return cell
-            
-        case 1:
-            let rowData = self.conditionList
-                //각 행마다 어떻게 반환할지 적어준다.
-                let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
-            cell.conditionLabel.text = rowData![indexPath.row]
-                return cell
-            
-        case 2:
-            if let rowData = self.SARList{
-                //각 행마다 어케할건지 적어준다
-                let cell = tableView.dequeueReusableCell(withIdentifier: "benefitCell") as! BenefitCell
-                //매장이름은 그냥 집어넣으면 되고
-                cell.shopName.text = rowData[indexPath.row].0
-                //레이블에 두 스트링을 합쳐서 넣어야 하므로 각각 추출해서 합성하고 레이블에 집어넣는다
-                let content1 = rowData[indexPath.row].1
-                let content2 = rowData[indexPath.row].2
-                
-                let contentMerged = content1! + ", " + content2!
-                cell.content.text = contentMerged
-                
-                return cell
-            }
-        default:
-            print("Error: 컨티션리스트에 값이 없다")
-            let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
-            cell.conditionLabel.text = "값을 불러오지 못해습니다"
-            return cell
-        
-            
-        }
-        //error
-    }
-    */
-    //------------------------------------------------------------------------------------------------------------
-        /*
-        //섹션별로 셀의 구성을 달리 해주어야 하므로...
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as! MemoCell
-            cell.memoTextView.text = memo!
-            return cell
-            
-        }else if indexPath.section == 1{
-
-            if let rowData = self.conditionList {
-            //각 행마다 어떻게 반환할지 적어준다.
-                let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
-                cell.conditionLabel.text = rowData[indexPath.row]
-                return cell
-                /*
-                for row in 0...indexPath.row {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
-                    cell.conditionLabel.text = rowData[row]
-                    return cell
- */
-                }else{
-                print("Error: 컨티션리스트에 값이 없다")
-                let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
-                cell.conditionLabel.text = "값을 불러오지 못해습니다"
-                return cell
-            }
-            //아래 else는 섹션값이 0도 1도 아닌 경우에 대해 설정하고있다. (섹션값이2인경우)
-    }else{
-            if let rowData = self.SARList{
-                //각 행마다 어케할건지 적어준다
-                let cell = tableView.dequeueReusableCell(withIdentifier: "benefitCell") as! BenefitCell
-                //매장이름은 그냥 집어넣으면 되고
-                cell.shopName.text = rowData[indexPath.row].0
-                //레이블에 두 스트링을 합쳐서 넣어야 하므로 각각 추출해서 합성하고 레이블에 집어넣는다
-                let content1 = rowData[indexPath.row].1
-                let content2 = rowData[indexPath.row].2
-                
-                let contentMerged = content1! + ", " + content2!
-                cell.content.text = contentMerged
-                
-                return cell
-            }
-        }
-    }
- */
+    
     
     //테이블 행의 개수를 결정하는 메소드
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -310,7 +216,7 @@ class DetailBenefitVC: UITableViewController {
     }
     */
     
-    //조건을 추가하는 사이드 뷰를 열고 닫는 메소드 원래는 혜택추가와 동일한 방식으로 사이드뷰로 작동하게 하려고 했으나 실제 해보니깐 그렇게 새로운 화면이 필요하지 않으므로 알라트뷰 띄워서 해결하려고 함
+    //조건을 추가하는 사이드 뷰를 열고 닫는 메소드
     @objc func moveCondition(_ sender: Any) {
         print("moveCondition실행됨")
         if self.delegate?.isSideBarShowing == false {
@@ -335,6 +241,18 @@ class DetailBenefitVC: UITableViewController {
         return 40
     }
  
+    //테이블의 한 행을 삭제하는 함수(디비까지 처리해야함에 주의)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            if(indexPath.section == 0){
+                print("맨위에꺼")
+            }else if(indexPath.section == 1){
+                print("중간꺼")
+            }else{
+                print("맨아래꺼")
+            }
+        }
+    }
     
     
     
