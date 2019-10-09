@@ -275,4 +275,22 @@ class CardDAO {
                 }
     
     }
+    
+    //카드사용조건을 지워버릴 함수...어떤 값을 지울지 특정하는녀석에는 card_id와 condition을 동시에 사용하여야 한다.(카드아이디만 다르고 사용조건이 동일해버리면 사용조건이 같고 card_id만 다른 여러가지 녀석들도 다 지워버릴것이기 때문
+    func deleteCondition(cardId: Int, condition: String){
+        do{
+                    
+                    let sql = """
+                        DELETE FROM conditions
+                        WHERE card_id = ? AND condition = ?
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: [cardId, condition])
+                    print("condition테이블 내의 한줄이 삭제되엇숩니다")
+                    
+                }catch let error as NSError {
+                    print("Failed from db: \(error.localizedDescription)")
+                }
+    }
+    
 }
