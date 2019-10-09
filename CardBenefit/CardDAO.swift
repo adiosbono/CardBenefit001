@@ -243,6 +243,22 @@ class CardDAO {
         
     }
     
+    func addCondition(cardId: Int, condition: String){
+        
+        do{
+                    let sql = """
+                        INSERT INTO conditions(card_id, condition) VALUES (?, ?)
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: [cardId, condition])
+                    print("새로운 조건 값을 디비에 입력하였습니다.")
+                    
+                }catch let error as NSError {
+                    print("Failed from db insertion: \(error.localizedDescription)")
+                }
+        
+    }
+    
     
     
 }

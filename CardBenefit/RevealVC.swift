@@ -35,6 +35,7 @@ class RevealVC: UIViewController{
     let SIDEBAR_HEIGHT: CGFloat = 1000
     
     let CUT_HEIGHT: CGFloat = 248 //화면맨위부터 메모하단까지의 높이....이만큼 잘라주는 애니메이션을 사용할거다. 120(메모텍스트뷰높이) + 40(섹션높이) = 160 //여기에다가 위의 네비게이션바 높이 (추정치 88 )만큼 더해야함 토탈 248
+    let CUT_HEIGHT2: CGFloat = 422
     
     //에디트버튼 눌렀을때 실행되게 할 녀석
     @objc func editDelegate() {
@@ -94,15 +95,17 @@ class RevealVC: UIViewController{
     func getConditionVC(){
         if self.conditionVC == nil {
             //컨디션추가 컨트롤러 객체를 읽어온다
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_cc"){
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_cc") as? ConditionVC{
                 //다른 메소드에서도 참조할 수 있도록 conditionVC속성에 저장해둔다
                 self.conditionVC = vc
-                
+                vc.delegate = self
+                //cardID값을 전달해야한다.
+                vc.cardId = self.cardId
                 
                 //---------------------------------------------------------------------
-                //conditionVC의 딜리게이트 변수에 값을 집어넣어야 한다!
-                let _vc = vc as! ConditionVC
-                _vc.delegate = self
+                //conditionVC의 딜리게이트 변수에 값을 집어넣어야 한다! 뭔 개똥같은 코드라니...
+                //let _vc = vc as! ConditionVC
+                //_vc.delegate = self
                 
                 //읽어온 컨디션추가 컨트롤러 객체를 컨테이너 뷰 컨트롤러에 연결한다.
                 self.addChild(vc)
@@ -116,14 +119,17 @@ class RevealVC: UIViewController{
     func getBenefitsVC(){
         if self.benefitsVC == nil {
             //혜택추가 컨트롤러 객체를 읽어온다
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_bc"){
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_bc") as? BenefitsVC{
                 //다른 메소드에서도 참조할 수 있도록 benefitsVC속성에 저장해둔다
                 self.benefitsVC = vc
+                vc.delegate = self
+                //cardID값을 전달해야한다.
+                vc.cardId = self.cardId
                 
                 //---------------------------------------------------------------------
-                //BenefitsVC의 딜리게이트 변수에 값을 집어넣어야 한다!
-                let _vc = vc as! BenefitsVC
-                _vc.delegate = self
+                //BenefitsVC의 딜리게이트 변수에 값을 집어넣어야 한다! 멍멍이똥같은코드라니
+                //let _vc = vc as! BenefitsVC
+                //_vc.delegate = self
                 
                 
                 //읽어온 컨디션추가 컨트롤러 객체를 컨테이너 뷰 컨트롤러에 연결한다.
@@ -149,12 +155,12 @@ class RevealVC: UIViewController{
     //조건 바를 연다
     func openConditionBar(_ complete: (() -> Void)?) {
         self.getConditionVC() //사이드 바 뷰를 읽어온다. 현 화면 아래에 깔아두는것이다
-        self.setShadowEffect(shadow: true, offset: -2) //그림자 효과를 준다
+        self.setShadowEffect(shadow: false, offset: 2) //그림자 효과를 준다
         //애니메이션 옵션
         let options = UIView.AnimationOptions([.curveEaseOut, .beginFromCurrentState])
         UIView.animate(withDuration: TimeInterval(self.SLIDE_TIME), delay: TimeInterval(0), options: options, animations: {
             //원래 보이던 화면을 이동하면 그아래 있던녀석이 나타나게되어 슬라이드하는것처럼느껴진다. 그럼 여기에서 처리해야 될 것은 원래 화면 맨 위를 고정하고 아래를 잘라내어 뷰가 드러나게 하는것이다.
-            self.contentVC?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.CUT_HEIGHT)
+            self.contentVC?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.CUT_HEIGHT2)
         }, completion: {
             if $0 == true {
                 self.isSideBarShowing = true
@@ -189,7 +195,7 @@ class RevealVC: UIViewController{
     //혜택 바를 연다
     func openBenefitBar(_ complete: (() -> Void)?) {
         self.getBenefitsVC() //사이드 바 뷰를 읽어온다.현 화면 아래다 깔아둔다고 생각하면 된다
-        self.setShadowEffect(shadow: true, offset: -2) //그림자 효과를 준다
+        self.setShadowEffect(shadow: false, offset: 2) //그림자 효과를 준다
         //애니메이션 옵션
         let options = UIView.AnimationOptions([.curveEaseOut, .beginFromCurrentState])
         UIView.animate(withDuration: TimeInterval(self.SLIDE_TIME), delay: TimeInterval(0), options: options, animations: {

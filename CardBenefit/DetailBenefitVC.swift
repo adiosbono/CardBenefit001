@@ -270,7 +270,8 @@ class DetailBenefitVC: UITableViewController {
             //추가버튼을 해당 섹션에 맞게 넣어줘야 되니깐 버튼을 각자 따로 만들어줘야한다.
             if self.tableView.isEditing == true {
             addButton.setTitle("추가", for: .normal)
-            addButton.addTarget(self, action: #selector(moveCondition), for: .touchUpInside)
+                //셀렉터안에 내용을 moveCondition으로 바꿔주면 사이드뷰가 열린다. 지금은 알라트뷰로 끝내려고 해서 변경함
+                addButton.addTarget(self, action: #selector(moveCondition(_:)), for: .touchUpInside)
             }
             
         case 2:
@@ -278,7 +279,7 @@ class DetailBenefitVC: UITableViewController {
             //추가버튼 넣기
             if self.tableView.isEditing == true {
             addButton.setTitle("추가", for: .normal)
-            addButton.addTarget(self, action: #selector(moveBenefit), for: .touchUpInside)
+                addButton.addTarget(self, action: #selector(moveBenefit(_:)), for: .touchUpInside)
             }
             
         default:
@@ -293,8 +294,16 @@ class DetailBenefitVC: UITableViewController {
         
         return v
     }
+    //팝업창을 띄워서 하려햇으나 포기....액션을 이용해서 원래 뷰컨트롤러에서 또 처리해줘야하는듯 그리고 내가 지금까지 어떤 조건을 추가햇엇는지 보기도 해야하니깐...
+    /*
+    @objc func popAlert(_ sender: Any) {
+        let alert = UIAlertController(title: "조건추가", message: "추가할 카드사용조건을 입력해주세요", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+    }
+    */
     
-    //조건을 추가하는 사이드 뷰를 열고 닫는 메소드
+    //조건을 추가하는 사이드 뷰를 열고 닫는 메소드 원래는 혜택추가와 동일한 방식으로 사이드뷰로 작동하게 하려고 했으나 실제 해보니깐 그렇게 새로운 화면이 필요하지 않으므로 알라트뷰 띄워서 해결하려고 함
     @objc func moveCondition(_ sender: Any) {
         print("moveCondition실행됨")
         if self.delegate?.isSideBarShowing == false {
