@@ -177,7 +177,7 @@ class CardDAO {
     func delete(cardId: Int){
         
         do{
-            //cardId를 통해 특정한 레코드를 찾아 그 레코드의 orders 컬럼의 값을 인자로 받은 order값으로 바꾼다
+            
             let sql = """
                 DELETE FROM main
                 WHERE card_id = ?
@@ -243,6 +243,7 @@ class CardDAO {
         
     }
     
+    //카드사용조건을 입력할때 쓸 함수
     func addCondition(cardId: Int, condition: String){
         
         do{
@@ -259,6 +260,19 @@ class CardDAO {
         
     }
     
+    //카드의 메모만 지울때 쓸 함수...지운다기보다 메모의 내용을 빈값으로 만들어버리면 된다.
+    func deleteMemo(cardId: Int){
+        do{
+                    let sql = """
+                        UPDATE main SET memo = ? WHERE card_id = ?
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: ["", cardId])
+                    print("빈값을 메모컬럼에 집어넣었다. 디비에 입력하였습니다.")
+                    
+                }catch let error as NSError {
+                    print("Failed from db insertion: \(error.localizedDescription)")
+                }
     
-    
+    }
 }

@@ -244,12 +244,18 @@ class DetailBenefitVC: UITableViewController {
     //테이블의 한 행을 삭제하는 함수(디비까지 처리해야함에 주의)
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete){
+            //메모를 지운다.
             if(indexPath.section == 0){
-                print("맨위에꺼")
+                //디비에서 지우고
+                self.cardDAO.deleteMemo(cardId: self.cardId!)
+                //화면에서 지우고
+                self.memo = ""
+                //화면 리로딩!
+                self.tableView.reloadData()
             }else if(indexPath.section == 1){
-                print("중간꺼")
+                
             }else{
-                print("맨아래꺼")
+                
             }
         }
     }
