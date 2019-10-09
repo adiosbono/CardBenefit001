@@ -10,6 +10,7 @@
 		041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B7234A3C7500F38585 /* ConditionVC.swift */; };
 		041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B9234A3C9300F38585 /* BenefitsVC.swift */; };
 		0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */; };
+		0455440E234DD61C00C63F1B /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455440D234DD61C00C63F1B /* ShopVC.swift */; };
 		04659B78232E766B0085692C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B77232E766B0085692C /* AppDelegate.swift */; };
 		04659B7A232E766B0085692C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B79232E766B0085692C /* ViewController.swift */; };
 		04659B7D232E766B0085692C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04659B7B232E766B0085692C /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		041F76B7234A3C7500F38585 /* ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionVC.swift; sourceTree = "<group>"; };
 		041F76B9234A3C9300F38585 /* BenefitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsVC.swift; sourceTree = "<group>"; };
 		0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
+		0455440D234DD61C00C63F1B /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		04659B74232E766B0085692C /* CardBenefit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardBenefit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659B77232E766B0085692C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04659B79232E766B0085692C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04CCFA12233E41B200DE8BF8 /* Utils.swift */,
+				0455440D234DD61C00C63F1B /* ShopVC.swift */,
 				04659B7B232E766B0085692C /* Main.storyboard */,
 				04659B81232E766F0085692C /* Assets.xcassets */,
 				04659B83232E766F0085692C /* LaunchScreen.storyboard */,
@@ -413,6 +416,7 @@
 				041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */,
 				04659B7A232E766B0085692C /* ViewController.swift in Sources */,
 				041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */,
+				0455440E234DD61C00C63F1B /* ShopVC.swift in Sources */,
 				04CCFA13233E41B200DE8BF8 /* Utils.swift in Sources */,
 				0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */,
 				04659B80232E766C0085692C /* CardBenefit.xcdatamodeld in Sources */,

@@ -19,6 +19,9 @@ class BenefitsVC: UIViewController, UITextFieldDelegate{
     @IBOutlet var store: UITextField!
     //혜택받을곳 선택하는 버튼
     @IBAction func selectButton(_ sender: UIButton) {
+        let uvc = self.storyboard!.instantiateViewController(withIdentifier: "shop") as! ShopVC
+        uvc.originVC = self
+        present(uvc, animated: true, completion: nil)
     }
     //혜택내용 추가 버튼
     @IBAction func addBenefit(_ sender: UIButton) {
