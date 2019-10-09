@@ -293,4 +293,20 @@ class CardDAO {
                 }
     }
     
+    //혜택을 지울때 쓸 함수
+    func deleteBenefit(cardId: Int, shop: String, advantage: String, restrict: String){
+        do{
+                    
+                    let sql = """
+                        DELETE FROM shop_adv_res
+                        WHERE card_id = ? AND shop = ? AND advantage = ? AND restrict = ?
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: [cardId, shop, advantage, restrict])
+                    print("shop_adv_res 테이블 내의 한줄이 삭제되엇숩니다")
+                    
+                }catch let error as NSError {
+                    print("Failed from db: \(error.localizedDescription)")
+                }
+    }
 }

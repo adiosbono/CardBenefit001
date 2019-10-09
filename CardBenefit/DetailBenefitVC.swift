@@ -255,7 +255,7 @@ class DetailBenefitVC: UITableViewController {
             //카드사용조건을 지운다. 요놈은 진짜로 디비의 데이터를 지워야 한다.
             }else if(indexPath.section == 1){
                 //디비에서 지운다
-                print("현재 선택한 녀석 : \(indexPath.row)")
+                //print("현재 선택한 녀석 : \(indexPath.row)")
                 self.cardDAO.deleteCondition(cardId: self.cardId!, condition: self.conditionList[indexPath.row]!)
                 //화면내 저장된 변수에서 지우고
                 self.conditionList.remove(at: indexPath.row)
@@ -263,8 +263,16 @@ class DetailBenefitVC: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 //화면 리로딩!
                 self.tableView.reloadData()
+            //혜택을 지워야 한다
             }else{
-                
+                //디비에서 지운다
+                self.cardDAO.deleteBenefit(cardId: self.cardId!, shop: self.SARList[indexPath.row].0!, advantage: self.SARList[indexPath.row].1!, restrict: self.SARList[indexPath.row].2!)
+                //화면내 저장된 변수에서 지우고
+                self.SARList.remove(at: indexPath.row)
+                //테이블뷰에서 지운다
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                //화면 리로딩
+                self.tableView.reloadData()
             }
         }
     }
