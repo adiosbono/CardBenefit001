@@ -101,6 +101,8 @@ class RevealVC: UIViewController{
                 vc.delegate = self
                 //cardID값을 전달해야한다.
                 vc.cardId = self.cardId
+                //카드사용조건을 추가한 뒤 바로 화면을 갱신하기 위해 DetailBenefitVC의 인스턴스를 전달한다
+                vc.DetailVCInstance = self.contentVC as? DetailBenefitVC
                 
                 //---------------------------------------------------------------------
                 //conditionVC의 딜리게이트 변수에 값을 집어넣어야 한다! 뭔 개똥같은 코드라니...

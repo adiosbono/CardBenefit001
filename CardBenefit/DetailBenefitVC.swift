@@ -60,8 +60,10 @@ class DetailBenefitVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //디비에서 데이터 가져오기
-        self.conditionList = self.cardDAO.findCondition(cardId: cardId!)
-        self.SARList = self.cardDAO.findSAR(cardId: cardId!)
+        self.refreshDB()
+        //아래 두줄은 구식으로 하드코딩하던것임
+        //self.conditionList = self.cardDAO.findCondition(cardId: cardId!)
+        //self.SARList = self.cardDAO.findSAR(cardId: cardId!)
         
         //프로그래밍 방식으로 네비게이션 바 버튼 만들기 //toEdit라는 함수를 실행하도록 하였다.
         //현재 사이드 뷰가 슉 나오는방식으로 하기 때문에 이거 없어도 무관함.......젠장
@@ -74,6 +76,11 @@ class DetailBenefitVC: UITableViewController {
         
     }
     
+    //디비를 다시 읽어오는 메소드
+    func refreshDB(){
+        self.conditionList = self.cardDAO.findCondition(cardId: cardId!)
+        self.SARList = self.cardDAO.findSAR(cardId: cardId!)
+    }
     
     
     //화면이 나타날때마다 호출되는 메소드

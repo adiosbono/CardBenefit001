@@ -14,7 +14,7 @@ class ConditionVC: UIViewController, UITextFieldDelegate{
     //변수를 정의
     
         //세부혜택화면DetailBenefitVC의 인스턴스를 받기위한 변수...조건추가완료후 테이블 리로드하기 위함임
-    
+    var DetailVCInstance: DetailBenefitVC!
         //card_id에 넣을 인자값을 전달받기위한 변수정의
     var cardId: Int!
     
@@ -36,8 +36,15 @@ class ConditionVC: UIViewController, UITextFieldDelegate{
             inputField.resignFirstResponder()
                 //텍스트필드의 값 비우기
             inputField.text = ""
+                //DetailBenefitVC화면 리로드시키기
+            if DetailVCInstance == nil {
+                print("DetailVCInstance가 nil임다")
+            }else{
+                DetailVCInstance.refreshDB()
+                DetailVCInstance.tableView.reloadData()
                 //알라트 팝업 띄우기
             self.alert("카드사용조건이 추가되었습니다")
+            }
         }
         
         
