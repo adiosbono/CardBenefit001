@@ -23,6 +23,7 @@
 		04659BAB232E87520085692C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BAA232E87520085692C /* Alamofire.framework */; };
 		04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */; };
 		04CCFA13233E41B200DE8BF8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CCFA12233E41B200DE8BF8 /* Utils.swift */; };
+		04FA66B5234F3D0400FEE3B6 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */; };
 		04FB302B233A61A700AE2A51 /* EditBenefitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB302A233A61A700AE2A51 /* EditBenefitVC.swift */; };
 		04FB302D233A68C200AE2A51 /* AddCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB302C233A68C200AE2A51 /* AddCardVC.swift */; };
 		04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8C6D233779E2006B1220 /* CardCell.swift */; };
@@ -78,6 +79,7 @@
 		04659BAA232E87520085692C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditVC.swift; sourceTree = "<group>"; };
 		04CCFA12233E41B200DE8BF8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		04FB302A233A61A700AE2A51 /* EditBenefitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBenefitVC.swift; sourceTree = "<group>"; };
 		04FB302C233A68C200AE2A51 /* AddCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardVC.swift; sourceTree = "<group>"; };
 		04FB8C6D233779E2006B1220 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04CCFA12233E41B200DE8BF8 /* Utils.swift */,
 				0455440D234DD61C00C63F1B /* ShopVC.swift */,
+				04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */,
 				04659B7B232E766B0085692C /* Main.storyboard */,
 				04659B81232E766F0085692C /* Assets.xcassets */,
 				04659B83232E766F0085692C /* LaunchScreen.storyboard */,
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FA66B5234F3D0400FEE3B6 /* UITextViewExtension.swift in Sources */,
 				04FB302D233A68C200AE2A51 /* AddCardVC.swift in Sources */,
 				04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */,
 				04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */,

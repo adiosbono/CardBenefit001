@@ -22,6 +22,7 @@ class CardDAO {
     typealias SAR = (String?, String?, String?)
     
     
+    
     //SQLite 연결 및 초기화
     lazy var fmdb : FMDatabase! = {
         //파일매니저객체 생성(1022)
@@ -308,5 +309,31 @@ class CardDAO {
                 }catch let error as NSError {
                     print("Failed from db: \(error.localizedDescription)")
                 }
+    }
+    
+    //혜택받을 장소(shop)리스트를 읽어오는 함수
+    func readShop() -> [String] {
+        //혜택받을장소(shop)를 저장할 배열
+        var shopList = [String]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    let sql = """
+                        SELECT DISTINCT shop
+                        FROM shop_adv_res
+                        ORDER BY shop ASC
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: nil)
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let shop = rs.string(forColumn: "shop")
+                        shopList.append(shop!)
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from readShop db: \(error.localizedDescription)")
+                }
+                return shopList
     }
 }

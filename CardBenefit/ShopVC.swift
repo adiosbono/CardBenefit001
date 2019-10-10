@@ -22,6 +22,8 @@ class ShopVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
     
     var originVC : BenefitsVC!
     
+    //DAO객체
+    let cardDAO = CardDAO()
     
     @IBAction func doneButton(_ sender: UIButton) {
         //원래의 뷰컨트롤러에 입력받은 값 전달해보리기
@@ -110,8 +112,8 @@ class ShopVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
         
-        //테스트를 위해 우선 더미로 집어넣은 값임...
-        self.shopList = ["김치", "사시미", "삼천갑자", "동방삭"]
+        //피커뷰에 표시될 데이터를 디비로부터 불러온다
+        self.shopList = self.cardDAO.readShop()
         
         //피커뷰 암것도 건드리지 않았는데 내가 원하는게 선택된 경우를 대비해서...초기값으로 맨 위에 있는 값 넣어주기
         self.selection = self.shopList[0]
