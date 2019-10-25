@@ -23,6 +23,12 @@ class BenefitsVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
         //제약조건 텍스트뷰
     @IBOutlet var restrictionTextView: UITextView!
     
+        //키보드 사이즈를 저장할 변수
+    var keyboardHeight: CGFloat!
+    
+    
+    //DAO 함수 선언
+    let cardDAO = CardDAO()
     //cardId넘겨받을 변수 선언
     var cardId: Int!
     //혜택받을곳이 어딘지 표시해주는 텍스트필드
@@ -40,16 +46,26 @@ class BenefitsVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
     //Done버튼...
     @IBAction func doneButton(_ sender: UIButton) {
+        
         print("BenefitsVC의 done눌러짐")
+        if benefitTextView.hasText == false {
+            self.alert("혜택내용을 입력해주세요")
+        }else if self.store.hasText == false{
+            self.alert("혜택받을곳을 입력해주세요")
+        }else{
+        
         //우선 혜택내용에 입력된 내용이 있는지 확인하고 입력된 내용이 없으면 경고창 띄워서 입력하게 유도한다.
         
         //여기에 디비에 넣는 작업을 하면 된다
-        
+            cardDAO.addSAR(cardId: self.cardId, shop: self.store.text!, advantage: self.benefitTextView.text, restrict: self.restrictionTextView.text)
+            
+        print("디비에 넣는코드 실행완료/ 넣어졌는지는 직접 확인하시오")
         
         //사용자가 키보드를 내리지 않고 done버튼을 눌렀을 경우에 대비해서 키보드를 내리는 함수를 실행한다.
         self.store.resignFirstResponder()
         
         self.delegate?.closeConditionBar(nil) //사이드 바를 닫는다
+        }
     }
     
     //리턴키 눌럿을때 키보드 내리기
@@ -73,8 +89,15 @@ class BenefitsVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
          self.restrictionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         
         
+        
         //텍스트필드의 딜리게이트 메소드를 연결하려면 반드시 아래 구문이 필요함
         self.store.delegate = self
+        //텍스트뷰도 마찬가지
+        self.benefitTextView.delegate = self
+        self.restrictionTextView.delegate = self
+        
+        //키볻 높이 구하는 기초작업
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     //혜택내용의 텍스트뷰나 제약조건의 텍스트뷰가 입력될때 placeholder사라지게 하기
@@ -96,8 +119,44 @@ class BenefitsVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
         }
     }
     
+    //키보드 사이즈를 측정하기 위하여 필요한 것들임
+    @objc func keyboardWillShow(_ notification: Notification){
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            self.keyboardHeight = keyboardRectangle.height
+        }
+    }
+    
+    
+    
+    //텍스트뷰가 편집하기 시작했을때(터치되었을때)호출되는 메소드...여기서 내가 원하는 녀석 터치한걸 분별해서 view를 올리면되겟군
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == self.restrictionTextView
+        {
+            //여기에 스크롤하는 구문작성
+            if self.view.frame.origin.y == 0 {
+                print("위로 스크롤할 준비 완료")
+                self.view.frame.origin.y -= keyboardHeight/2
+            }
+            
+        }else{
+            //여기는 다른 텍스트뷰 터치되었을때 실행될예정임
+        }
+    }
+    
+    //텍스트뷰 편집이 끝나면 원래대로 화면을 내려야하는데 그때 쓸 함수
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView == self.restrictionTextView {
+            print("원상복귀가즈아")
+            self.view.frame.origin.y = 0
+        }else{
+            
+        }
+    }
+    
     //TextView의 Done버튼이 눌렸을때 실행될 함수
     @objc func tapDone(sender: Any) {
+        
         self.view.endEditing(true)
     }
 }

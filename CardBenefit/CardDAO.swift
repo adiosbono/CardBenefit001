@@ -336,4 +336,20 @@ class CardDAO {
                 }
                 return shopList
     }
+    
+    //혜택받을곳, 혜택내용, 제약조건을 디비에 입력하는 함수
+    func addSAR(cardId: Int, shop: String, advantage: String, restrict: String) {
+        
+        do{
+                    let sql = """
+                        INSERT INTO shop_adv_res(card_id, shop, advantage, restrict) VALUES (?, ?, ?, ?)
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: [cardId, shop, advantage, restrict])
+                    print("새로운 조건 값을 디비에 입력하였습니다.")
+                    
+                }catch let error as NSError {
+                    print("Failed from db insertion: \(error.localizedDescription)")
+                }
+    }
 }
