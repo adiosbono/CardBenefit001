@@ -29,6 +29,9 @@ class DetailBenefitVC: UITableViewController {
     //DAO객체
     let cardDAO = CardDAO()
     
+    //메모셀을 전역변수로 사용하기 위해 정의한 녀석
+    var memoCell: MemoCell!
+    
     
     
     
@@ -71,6 +74,8 @@ class DetailBenefitVC: UITableViewController {
     
         self.navigationItem.rightBarButtonItem = editButton
         self.navigationItem.title = cardName
+        
+        
     }
     
     //디비를 다시 읽어오는 메소드
@@ -108,11 +113,21 @@ class DetailBenefitVC: UITableViewController {
         switch indexPath.section {
             
         case 0 :
-            let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as! MemoCell
-            cell.memoTextView.text = memo!
+            
+            self.memoCell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as? MemoCell
+            self.memoCell.memoTextView.text = memo!
+            
+            //메모 텍스트뷰 에디팅이 불가능하게 막기
+            self.memoCell.memoTextView.isEditable = false
+            
+            //기존 구문 시작
+            //let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as! MemoCell
+            //cell.memoTextView.text = memo!
+            //기존 구문 끗
+            
             //cell.frame = CGRect(x: 0, y: 0, width: <#T##Int#>, height: <#T##Int#>)
             
-            return cell
+            return memoCell
         case 1 :
             let cell = tableView.dequeueReusableCell(withIdentifier: "conditionCell") as! ConditionCell
             let rowData = self.conditionList
@@ -178,6 +193,11 @@ class DetailBenefitVC: UITableViewController {
         switch section {
         case 0:
             textHeader.text = "메모"
+            //에디트 버튼을 눌렀을때 메모텍스트뷰가 수정 가능하게 해야함
+            if self.tableView.isEditing == true {
+                print("Editing commence")
+                self.memoCell.memoTextView.isEditable = true
+            }
         case 1:
             textHeader.text = "카드사용조건"
             //추가버튼을 해당 섹션에 맞게 넣어줘야 되니깐 버튼을 각자 따로 만들어줘야한다.
