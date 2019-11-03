@@ -53,8 +53,8 @@ class DetailBenefitVC: UITableViewController, UITextViewDelegate {
         self.navigationItem.rightBarButtonItem?.title = "Done"
             
         }else{
-            
             self.navigationItem.rightBarButtonItem?.title = "Edit"
+            
         }
         //화면을 다시 로드하여 변동된 에디트 모드에 대한 적용사항들이 나타나도록 한다
         //self.tableView.reloadData()

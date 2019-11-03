@@ -44,7 +44,7 @@ class BenefitsVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     //사이드 바 오픈 기능을 위임할 델리게이트
     var delegate: RevealVC?
     
-    //Done버튼...
+    //Done버튼...눌럿을때 실행할것들
     @IBAction func doneButton(_ sender: UIButton) {
         
         print("BenefitsVC의 done눌러짐")
@@ -64,7 +64,16 @@ class BenefitsVC: UIViewController, UITextFieldDelegate, UITextViewDelegate{
         //사용자가 키보드를 내리지 않고 done버튼을 눌렀을 경우에 대비해서 키보드를 내리는 함수를 실행한다.
         self.store.resignFirstResponder()
         
+            
+            
+            
         self.delegate?.closeConditionBar(nil) //사이드 바를 닫는다
+            
+            //원래 있던 화면을 갱신하고 나서 사이드바를 닫기 위해 여기선 원래화면갱신하는 코드를 넣는다
+            self.delegate?.contentVC.viewDidLoad()
+            self.delegate?.contentVC.tableView.reloadData()
+            print("viewDidLoad Load success")
+            
         }
     }
     
