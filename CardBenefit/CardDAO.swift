@@ -352,4 +352,21 @@ class CardDAO {
                     print("Failed from db insertion: \(error.localizedDescription)")
                 }
     }
+    
+    //카드의 메모를 수정할때 쓸 함수
+    func updateMemo(cardId: Int, memo: String){
+        do{
+                    let sql = """
+                        UPDATE main SET memo = ? WHERE card_id = ?
+        """
+                    
+                    try self.fmdb.executeUpdate(sql, values: [memo, cardId])
+                    print("빈값을 메모컬럼에 집어넣었다. 디비에 입력하였습니다.")
+                    
+                }catch let error as NSError {
+                    print("Failed from db insertion: \(error.localizedDescription)")
+                }
+    
+    }
+    
 }

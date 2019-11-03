@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DetailBenefitVC: UITableViewController {
+class DetailBenefitVC: UITableViewController, UITextViewDelegate {
     //변수들을 넣는다
     var cardId: Int?
     var cardName: String!
@@ -76,6 +76,9 @@ class DetailBenefitVC: UITableViewController {
         self.navigationItem.title = cardName
         
         
+        
+        
+        
     }
     
     //디비를 다시 읽어오는 메소드
@@ -116,6 +119,9 @@ class DetailBenefitVC: UITableViewController {
             
             self.memoCell = tableView.dequeueReusableCell(withIdentifier: "memoCell") as? MemoCell
             self.memoCell.memoTextView.text = memo!
+            
+            //메모 텍스틑뷰의 딜리게이트를 현재 클래스로 설정
+            self.memoCell.memoTextView.delegate = self
             
             //메모 텍스트뷰 에디팅이 불가능하게 막기
             self.memoCell.memoTextView.isEditable = false
@@ -297,8 +303,25 @@ class DetailBenefitVC: UITableViewController {
         }
     }
     
+    //텍스트뷰가 수정되었을때 변경내용을 일단 텍스트뷰에 저장(현재 화면에서 저장하는것)
+    func textViewDidChange(_ textView: UITextView) {
+        self.memo = self.memoCell.memoTextView.text
+        
+        
+    }
     
-    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("메모내용을 디비에 변경작업 시작")
+        
+        if cardId == nil {
+            print("cardId값이 nil이므로 잦됫슴")
+        }else if memo == nil {
+            print("memo값이 nil이므로 잦됫슴")
+        }else{
+        self.cardDAO.updateMemo(cardId: cardId!, memo: memo!)
+            print("메모내용 변경작업 완료")
+        }
+    }
 }
 
 
