@@ -123,6 +123,9 @@ class DetailBenefitVC: UITableViewController, UITextViewDelegate {
             //메모 텍스틑뷰의 딜리게이트를 현재 클래스로 설정
             self.memoCell.memoTextView.delegate = self
             
+            //메모의 텍스트뷰 터치했을때 키보드에 done버튼 추가하는 코드
+            self.memoCell.memoTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+            
             //메모 텍스트뷰 에디팅이 불가능하게 막기
             self.memoCell.memoTextView.isEditable = false
             
@@ -321,6 +324,13 @@ class DetailBenefitVC: UITableViewController, UITextViewDelegate {
         self.cardDAO.updateMemo(cardId: cardId!, memo: memo!)
             print("메모내용 변경작업 완료")
         }
+    }
+    
+    //TextView의 Done버튼이 눌렸을때 실행될 함수
+    @objc func tapDone(sender: Any) {
+        
+        print("tabDone함수 실행됨")
+        self.view.endEditing(true)
     }
 }
 
