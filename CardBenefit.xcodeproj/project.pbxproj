@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040171DE23756AAD00E0DE80 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040171DD23756AAD00E0DE80 /* SearchResultVC.swift */; };
+		040171E023756DD500E0DE80 /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040171DF23756DD500E0DE80 /* SearchHomeVC.swift */; };
 		041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B7234A3C7500F38585 /* ConditionVC.swift */; };
 		041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B9234A3C9300F38585 /* BenefitsVC.swift */; };
 		0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		040171DD23756AAD00E0DE80 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		040171DF23756DD500E0DE80 /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
 		041F76B7234A3C7500F38585 /* ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionVC.swift; sourceTree = "<group>"; };
 		041F76B9234A3C9300F38585 /* BenefitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsVC.swift; sourceTree = "<group>"; };
 		0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */,
 				04FB302C233A68C200AE2A51 /* AddCardVC.swift */,
 				040171DD23756AAD00E0DE80 /* SearchResultVC.swift */,
+				040171DF23756DD500E0DE80 /* SearchHomeVC.swift */,
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04CCFA12233E41B200DE8BF8 /* Utils.swift */,
@@ -433,6 +436,7 @@
 				04FFBFD9232FA3BA00712680 /* CardToBenefitVC.swift in Sources */,
 				04FB302B233A61A700AE2A51 /* EditBenefitVC.swift in Sources */,
 				04FFBFDB232FA55600712680 /* CardVO.swift in Sources */,
+				040171E023756DD500E0DE80 /* SearchHomeVC.swift in Sources */,
 				04FB8C752337907E006B1220 /* TableVCTemplateVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
