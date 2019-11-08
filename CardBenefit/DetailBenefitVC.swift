@@ -217,7 +217,7 @@ class DetailBenefitVC: UITableViewController, UITextViewDelegate {
             }
             
         case 2:
-            textHeader.text = "혜택"
+            textHeader.text = "혜택 및 제약조건"
             //추가버튼 넣기
             if self.tableView.isEditing == true {
             addButton.setTitle("추가", for: .normal)

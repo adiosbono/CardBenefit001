@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040171DE23756AAD00E0DE80 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040171DD23756AAD00E0DE80 /* SearchResultVC.swift */; };
 		041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B7234A3C7500F38585 /* ConditionVC.swift */; };
 		041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B9234A3C9300F38585 /* BenefitsVC.swift */; };
 		0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040171DD23756AAD00E0DE80 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		041F76B7234A3C7500F38585 /* ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionVC.swift; sourceTree = "<group>"; };
 		041F76B9234A3C9300F38585 /* BenefitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsVC.swift; sourceTree = "<group>"; };
 		0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				04FE0DCE234B2A900054EB65 /* RevealVC.swift */,
 				04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */,
 				04FB302C233A68C200AE2A51 /* AddCardVC.swift */,
+				040171DD23756AAD00E0DE80 /* SearchResultVC.swift */,
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
 				04CCFA12233E41B200DE8BF8 /* Utils.swift */,
@@ -414,6 +417,7 @@
 				04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */,
 				04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */,
 				04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */,
+				040171DE23756AAD00E0DE80 /* SearchResultVC.swift in Sources */,
 				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
 				04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */,
 				04FE0DCF234B2A900054EB65 /* RevealVC.swift in Sources */,
