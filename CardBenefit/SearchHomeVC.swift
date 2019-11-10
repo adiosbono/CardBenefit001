@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 
-class SearchHomeVC: UIViewController {
+class SearchHomeVC: UIViewController, UISearchBarDelegate {
     
     //화면에 있는 객체들을 연결한다
+    
+        //디비사용하기 위한 객체 선언
+    let cardDAO = CardDAO()
         //서치바
     @IBOutlet var SearchBar: UISearchBar!
         //카드명 스위치 중괄호안의 내용은 버튼이 터치될때마다 실행된다.
@@ -75,6 +78,11 @@ class SearchHomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //검색바 딜리게이트를 여기로 설정
+        self.SearchBar.delegate = self
+        //서치바 선택시 나타나는 키보드위쪽에 done버튼 만들고 이거 누르면 키보드 사라지게 하기
+        self.SearchBar.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
     }
 
     //스위치가 눌릴때매다 실행될 함수...스위치의 값을 검사하여 모두 0 이 된 경우 마지막에 0으로 만든 녀석을 다시 1로 돌린다
@@ -92,4 +100,10 @@ class SearchHomeVC: UIViewController {
         }
     }
 
+    //서치바 키보드 done버튼 눌릴때 실행될 함수
+    @objc func tapDone(sender: Any) {
+        
+        print("tabDone함수 실행됨")
+        self.view.endEditing(true)
+    }
 }

@@ -12,7 +12,7 @@ import UIKit
 import FMDB
 
 class CardDAO {
-    //CardVO에 들어있는순서대로 cardId, cardName, image, nickName, traffic, oversea, memo
+    //CardVO에 들어있는순서대로 cardId, cardName, image, nickName, traffic, oversea, memo, orders
     //차이점이라고 한다면 image가 데이터베이스에는 이름만 저장되므로 여기선 String?이지만 CardVO에선 UIImage?임
     //튜플객체임
     typealias CardRecord = (Int, String, String?, String?, Int, Int, String?, Int) //메인테이블용
@@ -367,6 +367,40 @@ class CardDAO {
                     print("Failed from db insertion: \(error.localizedDescription)")
                 }
     
+    }
+    
+    //카드명 키워드 검색할때 쓸 함수
+    func searchCardName(keyWord: String) -> [CardRecord]{
+        //검색결과를 저장할 배열
+        var searchResults = [CardRecord]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    let sql = """
+                        SELECT card_id, card_name, image_name, nick_name, transportation, foreign_use, memo, orders
+                        FROM main
+                        WHERE card_name LIKE "%?%"
+                        ORDER BY card_name ASC
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let cardId = rs.int(forColumn: "card_id")
+                        let cardName = rs.string(forColumn: "card_name")
+                        let imageName = rs.string(forColumn: "image_name")
+                        let nickName = rs.string(forColumn: "nick_name")
+                        let transport = rs.int(forColumn: "transportation")
+                        let foreign = rs.int(forColumn: "foreign_use")
+                        let memo = rs.string(forColumn: "memo")
+                        let orders = rs.int(forColumn: "orders")
+                        searchResults.append((Int(cardId), cardName!, imageName, nickName, Int(transport), Int(foreign), memo, Int(orders)))
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from searchCardName db: \(error.localizedDescription)")
+                }
+                return searchResults
     }
     
 }
