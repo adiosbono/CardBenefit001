@@ -795,6 +795,12 @@
                     <navigationItem key="navigationItem" id="Edf-cK-bUK"/>
                     <connections>
                         <outlet property="SearchBar" destination="AZy-SI-I3q" id="A3M-VO-TvN"/>
+                        <outlet property="benefitValue" destination="Dlq-3g-rNs" id="Vw4-lm-lfS"/>
+                        <outlet property="cardNameValue" destination="enp-xV-Ml2" id="7QF-Hv-RwF"/>
+                        <outlet property="conditionValue" destination="x2y-LG-b4A" id="pnT-um-Tgq"/>
+                        <outlet property="memoValue" destination="biE-e8-Ksw" id="u28-tM-U5G"/>
+                        <outlet property="nickNameValue" destination="5bV-uy-efh" id="KJU-hE-dI5"/>
+                        <outlet property="restrictionValue" destination="ZTK-vs-4dy" id="SfH-jT-LIC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSp-CK-ImO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
