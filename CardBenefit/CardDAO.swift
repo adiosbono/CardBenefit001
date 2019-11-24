@@ -403,4 +403,217 @@ class CardDAO {
                 return searchResults
     }
     
+    //별명으로 검색할때 쓸 함수
+    func searchNickName(keyWord: String) -> [CardRecord]{
+        //검색결과를 저장할 배열
+            var searchResults = [CardRecord]()
+            do{
+                        //카드목록을 가져올 sql작성 및 쿼리 실행
+                        let sql = """
+                            SELECT card_id, card_name, image_name, nick_name, transportation, foreign_use, memo, orders
+                            FROM main
+                            WHERE nick_name LIKE "%?%"
+                            ORDER BY card_name ASC
+            """
+                        
+                        let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                        //결과 집합 추출
+                        while rs.next() {
+                            let cardId = rs.int(forColumn: "card_id")
+                            let cardName = rs.string(forColumn: "card_name")
+                            let imageName = rs.string(forColumn: "image_name")
+                            let nickName = rs.string(forColumn: "nick_name")
+                            let transport = rs.int(forColumn: "transportation")
+                            let foreign = rs.int(forColumn: "foreign_use")
+                            let memo = rs.string(forColumn: "memo")
+                            let orders = rs.int(forColumn: "orders")
+                            searchResults.append((Int(cardId), cardName!, imageName, nickName, Int(transport), Int(foreign), memo, Int(orders)))
+                        }
+                        
+                    }catch let error as NSError {
+                        print("Failed from searchNickName db: \(error.localizedDescription)")
+                    }
+                    return searchResults
+        }
+    
+    //메모로 검색할때 쓸 함수
+    func searchMemo(keyWord: String) -> [CardRecord]{
+        //검색결과를 저장할 배열
+        var searchResults = [CardRecord]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    let sql = """
+                        SELECT card_id, card_name, image_name, nick_name, transportation, foreign_use, memo, orders
+                        FROM main
+                        WHERE memo LIKE "%?%"
+                        ORDER BY card_name ASC
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let cardId = rs.int(forColumn: "card_id")
+                        let cardName = rs.string(forColumn: "card_name")
+                        let imageName = rs.string(forColumn: "image_name")
+                        let nickName = rs.string(forColumn: "nick_name")
+                        let transport = rs.int(forColumn: "transportation")
+                        let foreign = rs.int(forColumn: "foreign_use")
+                        let memo = rs.string(forColumn: "memo")
+                        let orders = rs.int(forColumn: "orders")
+                        searchResults.append((Int(cardId), cardName!, imageName, nickName, Int(transport), Int(foreign), memo, Int(orders)))
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from searchMemo db: \(error.localizedDescription)")
+                }
+                return searchResults
+    }
+    
+    //카드사용조건으로 검색할때 쓸 함수.....출력값에 있는 튜플은 순서대로 카드명, 별칭, 카드사용조건, 카드id, 카드사진임
+    func searchCondition(keyWord: String) -> [(String, String, String, Int, String)]{
+        var searchResults = [(String, String, String, Int, String)]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    //주의사항으로 여기선 JOIN구문을 이용해서 main테이블과 condition테이블을 합쳐야 함
+            
+                    let sql = """
+                        SELECT main.card_id card_id, main.card_name card_name, main.image_name image_name, main.nick_name nick_name, conditions.condition condition
+                        FROM main
+                        JOIN conditions ON main.card_id == conditions.card_id
+                        WHERE conditions.condition LIKE "%?%"
+                        ORDER BY main.card_name
+                        
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let cardId = rs.int(forColumn: "card_id")
+                        let cardName = rs.string(forColumn: "card_name")
+                        let imageName = rs.string(forColumn: "image_name")
+                        let nickName = rs.string(forColumn: "nick_name")
+                        let condition = rs.string(forColumn: "condition")
+                        searchResults.append((cardName!, nickName!, condition!, Int(cardId), imageName!))
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from searchCondition db: \(error.localizedDescription)")
+                }
+                return searchResults
+    }
+    
+    
+    //상점명으로 검색했을때 사용할 함수...튜플 순서대로 카드명, 별칭, 상점명, 혜택, 제약, 카드id, 카드사진
+    func searchShop(keyWord: String) -> [(String, String, String, String, String, Int, String)]{
+        var searchResults = [(String, String, String, String, String, Int, String)]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    //주의사항으로 여기선 JOIN구문을 이용해서 main테이블과 condition테이블을 합쳐야 함
+            
+                    let sql = """
+                        SELECT main.card_id card_id, main.card_name card_name, main.image_name image_name, main.nick_name nick_name, shop_adv_res.shop shop, shop_adv_res.advantage advantage,
+                            shop_adv_res.restrict
+                        FROM main
+                        JOIN shop_adv_res ON main.card_id == shop_adv_res.card_id
+                        WHERE shop_adv_res.shop LIKE "%?%"
+                        ORDER BY main.card_name
+                        
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let cardId = rs.int(forColumn: "card_id")
+                        let cardName = rs.string(forColumn: "card_name")
+                        let imageName = rs.string(forColumn: "image_name")
+                        let nickName = rs.string(forColumn: "nick_name")
+                        let shop = rs.string(forColumn: "shop")
+                        let advantage = rs.string(forColumn: "advantage")
+                        let restrict = rs.string(forColumn: "restrict")
+                        searchResults.append((cardName!, nickName!, shop!, advantage!, restrict!, Int(cardId), imageName!))
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from searchShop db: \(error.localizedDescription)")
+                }
+                return searchResults
+    }
+    
+    //혜택으로 검색했을때 사용할 함수....안의 내용은 상점명 검색과 거의 동일하며 다른점은 where조건절에 혜택을 검색하도록 햇다는것!튜플 순서대로 카드명, 별칭, 상점명, 혜택, 제약, 카드id, 카드사진
+    func searchBenefit(keyWord: String) -> [(String, String, String, String, String, Int, String)]{
+        var searchResults = [(String, String, String, String, String, Int, String)]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    
+            
+                    let sql = """
+                        SELECT main.card_id card_id, main.card_name card_name, main.image_name image_name, main.nick_name nick_name, shop_adv_res.shop shop, shop_adv_res.advantage advantage,
+                            shop_adv_res.restrict
+                        FROM main
+                        JOIN shop_adv_res ON main.card_id == shop_adv_res.card_id
+                        WHERE shop_adv_res.advantage LIKE "%?%"
+                        ORDER BY main.card_name
+                        
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let cardId = rs.int(forColumn: "card_id")
+                        let cardName = rs.string(forColumn: "card_name")
+                        let imageName = rs.string(forColumn: "image_name")
+                        let nickName = rs.string(forColumn: "nick_name")
+                        let shop = rs.string(forColumn: "shop")
+                        let advantage = rs.string(forColumn: "advantage")
+                        let restrict = rs.string(forColumn: "restrict")
+                        searchResults.append((cardName!, nickName!, shop!, advantage!, restrict!, Int(cardId), imageName!))
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from searchShop db: \(error.localizedDescription)")
+                }
+                return searchResults
+    }
+    
+    //제약으로 검색했을때 사용할 함수....아베시벌것
+    func searchRestrict(keyWord: String) -> [(String, String, String, String, String, Int, String)]{
+        var searchResults = [(String, String, String, String, String, Int, String)]()
+        do{
+                    //카드목록을 가져올 sql작성 및 쿼리 실행
+                    
+            
+                    let sql = """
+                        SELECT main.card_id card_id, main.card_name card_name, main.image_name image_name, main.nick_name nick_name, shop_adv_res.shop shop, shop_adv_res.advantage advantage,
+                            shop_adv_res.restrict
+                        FROM main
+                        JOIN shop_adv_res ON main.card_id == shop_adv_res.card_id
+                        WHERE shop_adv_res.restrict LIKE "%?%"
+                        ORDER BY main.card_name
+                        
+        """
+                    
+                    let rs = try self.fmdb.executeQuery(sql, values: [keyWord])
+
+                    //결과 집합 추출
+                    while rs.next() {
+                        let cardId = rs.int(forColumn: "card_id")
+                        let cardName = rs.string(forColumn: "card_name")
+                        let imageName = rs.string(forColumn: "image_name")
+                        let nickName = rs.string(forColumn: "nick_name")
+                        let shop = rs.string(forColumn: "shop")
+                        let advantage = rs.string(forColumn: "advantage")
+                        let restrict = rs.string(forColumn: "restrict")
+                        searchResults.append((cardName!, nickName!, shop!, advantage!, restrict!, Int(cardId), imageName!))
+                    }
+                    
+                }catch let error as NSError {
+                    print("Failed from searchShop db: \(error.localizedDescription)")
+                }
+                return searchResults
+    }
 }
