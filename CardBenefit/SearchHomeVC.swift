@@ -122,8 +122,12 @@ class SearchHomeVC: UIViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("서치버튼클릭됨")
         //화면을 네비게이션 방싣으로 넘기는 코드 시작
-        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SearchResults") as! SearchResultVC //스토리보드 아이디가 SearchResultVC임....
+        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SearchResult") as! SearchResultVC//스토리보드 아이디가 SearchResultVC임....
+        
+        
+        
         //전달하려는 값을 준다.
+        /*
         dvc.cardName = self.cardNameValue.isOn
         dvc.nickName = self.nickNameValue.isOn
         dvc.memo = self.memoValue.isOn
@@ -132,10 +136,12 @@ class SearchHomeVC: UIViewController, UISearchBarDelegate {
         dvc.restriction = self.restrictionValue.isOn
         dvc.benefit = self.benefitValue.isOn
         dvc.keyWord = self.SearchBar.text
-        
+        */
         
         //네비게이션컨트롤러를 이용한 화면전환 실시
         self.navigationController?.pushViewController(dvc, animated: true)
         //화면을 네비게이션방식으로 넘기는 코드 끗
+ 
+ 
     }
 }

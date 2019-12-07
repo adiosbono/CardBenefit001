@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040171DE23756AAD00E0DE80 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040171DD23756AAD00E0DE80 /* SearchResultVC.swift */; };
+		040171DE23756AAD00E0DE80 /* FailSearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040171DD23756AAD00E0DE80 /* FailSearchResultVC.swift */; };
 		040171E023756DD500E0DE80 /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040171DF23756DD500E0DE80 /* SearchHomeVC.swift */; };
 		041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B7234A3C7500F38585 /* ConditionVC.swift */; };
 		041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F76B9234A3C9300F38585 /* BenefitsVC.swift */; };
@@ -23,6 +23,7 @@
 		04659B9B232E766F0085692C /* CardBenefitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04659B9A232E766F0085692C /* CardBenefitUITests.swift */; };
 		04659BA9232E87490085692C /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BA8232E87490085692C /* FMDB.framework */; };
 		04659BAB232E87520085692C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BAA232E87520085692C /* Alamofire.framework */; };
+		04B210E9239BBC2A00C01AAC /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210E8239BBC2A00C01AAC /* SearchResultVC.swift */; };
 		04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */; };
 		04CCFA13233E41B200DE8BF8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CCFA12233E41B200DE8BF8 /* Utils.swift */; };
 		04FA66B5234F3D0400FEE3B6 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */; };
@@ -59,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		040171DD23756AAD00E0DE80 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		040171DD23756AAD00E0DE80 /* FailSearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailSearchResultVC.swift; sourceTree = "<group>"; };
 		040171DF23756DD500E0DE80 /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
 		041F76B7234A3C7500F38585 /* ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionVC.swift; sourceTree = "<group>"; };
 		041F76B9234A3C9300F38585 /* BenefitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsVC.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		04659B9C232E766F0085692C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04659BA8232E87490085692C /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659BAA232E87520085692C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B210E8239BBC2A00C01AAC /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditVC.swift; sourceTree = "<group>"; };
 		04CCFA12233E41B200DE8BF8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
@@ -178,7 +180,8 @@
 				04FE0DCE234B2A900054EB65 /* RevealVC.swift */,
 				04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */,
 				04FB302C233A68C200AE2A51 /* AddCardVC.swift */,
-				040171DD23756AAD00E0DE80 /* SearchResultVC.swift */,
+				040171DD23756AAD00E0DE80 /* FailSearchResultVC.swift */,
+				04B210E8239BBC2A00C01AAC /* SearchResultVC.swift */,
 				040171DF23756DD500E0DE80 /* SearchHomeVC.swift */,
 				04FFBFDA232FA55600712680 /* CardVO.swift */,
 				04FFBFDC232FA73500712680 /* CardDAO.swift */,
@@ -420,7 +423,7 @@
 				04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */,
 				04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */,
 				04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */,
-				040171DE23756AAD00E0DE80 /* SearchResultVC.swift in Sources */,
+				040171DE23756AAD00E0DE80 /* FailSearchResultVC.swift in Sources */,
 				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
 				04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */,
 				04FE0DCF234B2A900054EB65 /* RevealVC.swift in Sources */,
@@ -436,6 +439,7 @@
 				04FFBFD9232FA3BA00712680 /* CardToBenefitVC.swift in Sources */,
 				04FB302B233A61A700AE2A51 /* EditBenefitVC.swift in Sources */,
 				04FFBFDB232FA55600712680 /* CardVO.swift in Sources */,
+				04B210E9239BBC2A00C01AAC /* SearchResultVC.swift in Sources */,
 				040171E023756DD500E0DE80 /* SearchHomeVC.swift in Sources */,
 				04FB8C752337907E006B1220 /* TableVCTemplateVC.swift in Sources */,
 			);
