@@ -37,23 +37,35 @@ class SearchResultVC: UITableViewController{
     
     //각행에 어떤녀석들이 들어갈것인지!!
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultNameCell") as! ResultNameCell
+            
+            //여기안에 디비에서 받아온 정보를 가지고 각 셀 안의 데이터를 입력해준다.
+            
+            return cell
         case 1:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultNickNameCell") as! ResultNickNameCell
+            return cell
         case 2:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultMemoCell") as! ResultMemoCell
+            return cell
         case 3:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultConditionCell") as! ResultConditionCell
+            return cell
         case 4:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultShopCell") as! ResultShopCell
+            return cell
         case 5:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultBenefitCell") as! ResultBenefitCell
+            return cell
         case 6:
-            return
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultRestrictionCell") as! ResultRestrictionCell
+            return cell
         default:
-            return
+            //그냥 쓸거없어서 카드이름으로 찾는녀석으로해놈
+            let cell = tableView.dequeueReusableCell(withIdentifier: "resultNickNameCell") as! ResultNickNameCell
+            return cell
         }
     }
     
@@ -80,4 +92,31 @@ class SearchResultVC: UITableViewController{
             return "eat my shorts"
         }
     }
+    
+    //각행의 높이를 설정한다....셀안잘리게 해야됨
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           
+           print("\(indexPath)행높이값 : \(UITableView.automaticDimension)")
+           //시스템이 알이서 정하게 두는 방법
+        return 90.0
+           //각 섹션별로 다르게 주고싶은경우 알아서 숫자 입력
+           /*
+           switch indexPath.section {
+           case 0 :
+               return UITableView.automaticDimension
+           case 1 :
+               return UITableView.automaticDimension
+           case 2 :
+               return UITableView.automaticDimension
+           case 3 :
+               return UITableView.automaticDimension
+           case 4 :
+               return UITableView.automaticDimension
+           case 5 :
+               return UITableView.automaticDimension
+           default :
+               return UITableView.automaticDimension
+           }
+    */
+       }
 }

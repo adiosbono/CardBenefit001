@@ -24,6 +24,12 @@
 		04659BA9232E87490085692C /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BA8232E87490085692C /* FMDB.framework */; };
 		04659BAB232E87520085692C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04659BAA232E87520085692C /* Alamofire.framework */; };
 		04B210E9239BBC2A00C01AAC /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210E8239BBC2A00C01AAC /* SearchResultVC.swift */; };
+		04B210EB239BC54500C01AAC /* ResultNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210EA239BC54500C01AAC /* ResultNameCell.swift */; };
+		04B210EF239D0D5A00C01AAC /* ResultMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210EE239D0D5A00C01AAC /* ResultMemoCell.swift */; };
+		04B210F1239D0E1700C01AAC /* ResultConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210F0239D0E1700C01AAC /* ResultConditionCell.swift */; };
+		04B210F3239D0E7C00C01AAC /* ResultShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210F2239D0E7C00C01AAC /* ResultShopCell.swift */; };
+		04B210F5239D0EEC00C01AAC /* ResultBenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210F4239D0EEC00C01AAC /* ResultBenefitCell.swift */; };
+		04B210F7239D0F9100C01AAC /* ResultRestrictionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B210F6239D0F9100C01AAC /* ResultRestrictionCell.swift */; };
 		04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */; };
 		04CCFA13233E41B200DE8BF8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CCFA12233E41B200DE8BF8 /* Utils.swift */; };
 		04FA66B5234F3D0400FEE3B6 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */; };
@@ -83,6 +89,12 @@
 		04659BA8232E87490085692C /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04659BAA232E87520085692C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B210E8239BBC2A00C01AAC /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		04B210EA239BC54500C01AAC /* ResultNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultNameCell.swift; sourceTree = "<group>"; };
+		04B210EE239D0D5A00C01AAC /* ResultMemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMemoCell.swift; sourceTree = "<group>"; };
+		04B210F0239D0E1700C01AAC /* ResultConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConditionCell.swift; sourceTree = "<group>"; };
+		04B210F2239D0E7C00C01AAC /* ResultShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultShopCell.swift; sourceTree = "<group>"; };
+		04B210F4239D0EEC00C01AAC /* ResultBenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBenefitCell.swift; sourceTree = "<group>"; };
+		04B210F6239D0F9100C01AAC /* ResultRestrictionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRestrictionCell.swift; sourceTree = "<group>"; };
 		04CCFA10233E2A2E00DE8BF8 /* CardEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditVC.swift; sourceTree = "<group>"; };
 		04CCFA12233E41B200DE8BF8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		04FA66B4234F3D0400FEE3B6 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
@@ -138,6 +150,12 @@
 				04FB8C762337AA7B006B1220 /* MemoCell.swift */,
 				04FB8C782337ACE5006B1220 /* ConditionCell.swift */,
 				0432B4F82338D1E000F2F2F9 /* BenefitCell.swift */,
+				04B210EA239BC54500C01AAC /* ResultNameCell.swift */,
+				04B210EE239D0D5A00C01AAC /* ResultMemoCell.swift */,
+				04B210F0239D0E1700C01AAC /* ResultConditionCell.swift */,
+				04B210F2239D0E7C00C01AAC /* ResultShopCell.swift */,
+				04B210F4239D0EEC00C01AAC /* ResultBenefitCell.swift */,
+				04B210F6239D0F9100C01AAC /* ResultRestrictionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -423,15 +441,21 @@
 				04FB8C6E233779E2006B1220 /* CardCell.swift in Sources */,
 				04CCFA11233E2A2E00DE8BF8 /* CardEditVC.swift in Sources */,
 				04FB8C792337ACE5006B1220 /* ConditionCell.swift in Sources */,
+				04B210EF239D0D5A00C01AAC /* ResultMemoCell.swift in Sources */,
 				040171DE23756AAD00E0DE80 /* FailSearchResultVC.swift in Sources */,
+				04B210F3239D0E7C00C01AAC /* ResultShopCell.swift in Sources */,
 				04FB8C772337AA7B006B1220 /* MemoCell.swift in Sources */,
 				04FB8C7323378F77006B1220 /* DetailBenefitVC.swift in Sources */,
+				04B210F1239D0E1700C01AAC /* ResultConditionCell.swift in Sources */,
+				04B210EB239BC54500C01AAC /* ResultNameCell.swift in Sources */,
 				04FE0DCF234B2A900054EB65 /* RevealVC.swift in Sources */,
+				04B210F5239D0EEC00C01AAC /* ResultBenefitCell.swift in Sources */,
 				041F76BA234A3C9300F38585 /* BenefitsVC.swift in Sources */,
 				04659B7A232E766B0085692C /* ViewController.swift in Sources */,
 				041F76B8234A3C7500F38585 /* ConditionVC.swift in Sources */,
 				0455440E234DD61C00C63F1B /* ShopVC.swift in Sources */,
 				04CCFA13233E41B200DE8BF8 /* Utils.swift in Sources */,
+				04B210F7239D0F9100C01AAC /* ResultRestrictionCell.swift in Sources */,
 				0432B4F92338D1E000F2F2F9 /* BenefitCell.swift in Sources */,
 				04659B80232E766C0085692C /* CardBenefit.xcdatamodeld in Sources */,
 				04FFBFDD232FA73500712680 /* CardDAO.swift in Sources */,
